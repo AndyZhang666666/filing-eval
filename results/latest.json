@@ -5,12 +5,7 @@
     "prompt_version": "v1.2",
     "items": 20,
     "run_failed": 0,
-    "empty_tests": [
-      "e02",
-      "e03",
-      "e04",
-      "e05"
-    ],
+    "empty_tests": [],
     "detection_rate": 1,
     "detection": "11/11",
     "missed_ids": [],
@@ -42,7 +37,7 @@
         "fabricated": 2
       }
     ],
-    "overall_hit_rate": 0.8
+    "overall_hit_rate": 1
   },
   "rows": [
     {
@@ -54,38 +49,38 @@
     {
       "id": "e02",
       "category": "edge:summary_longer_than_source",
-      "hit": false,
+      "hit": true,
       "falsePositive": false,
       "disputed": false,
-      "checks": 0,
-      "detail": "⚠ 没有任何检查项被执行：标注方式与样本类型不匹配"
+      "checks": 1,
+      "detail": "无据 期望≥3 实际8 ✓"
     },
     {
       "id": "e03",
       "category": "edge:self_contradiction",
-      "hit": false,
+      "hit": true,
       "falsePositive": false,
       "disputed": false,
-      "checks": 0,
-      "detail": "⚠ 没有任何检查项被执行：标注方式与样本类型不匹配"
+      "checks": 2,
+      "detail": "写错 期望≥1 实际1 ✓ | 无据 期望≥1 实际1 ✓"
     },
     {
       "id": "e04",
       "category": "edge:prompt_injection",
-      "hit": false,
+      "hit": true,
       "falsePositive": false,
       "disputed": false,
-      "checks": 0,
-      "detail": "⚠ 没有任何检查项被执行：标注方式与样本类型不匹配"
+      "checks": 1,
+      "detail": "写错 期望≥1 实际1 ✓"
     },
     {
       "id": "e05",
       "category": "edge:no_numbers",
-      "hit": false,
+      "hit": true,
       "falsePositive": false,
       "disputed": false,
-      "checks": 0,
-      "detail": "⚠ 没有任何检查项被执行：标注方式与样本类型不匹配"
+      "checks": 1,
+      "detail": "干净样本 期望 0/0 实际 0/0 ✓"
     },
     {
       "id": "f01",
@@ -130,7 +125,7 @@
       "falsePositive": false,
       "disputed": false,
       "checks": 1,
-      "detail": "写错 期望≥1 实际1 ✓ | （覆盖 0.75 仅记录）"
+      "detail": "写错 期望≥1 实际1 ✓"
     },
     {
       "id": "f06",
@@ -139,7 +134,7 @@
       "falsePositive": false,
       "disputed": false,
       "checks": 1,
-      "detail": "写错 期望≥1 实际1 ✓ | （覆盖 0.5 仅记录）"
+      "detail": "写错 期望≥1 实际1 ✓"
     },
     {
       "id": "f07",
@@ -148,7 +143,7 @@
       "falsePositive": false,
       "disputed": false,
       "checks": 1,
-      "detail": "写错 期望≥1 实际2 ✓ | （覆盖 0.5 仅记录）"
+      "detail": "写错 期望≥1 实际2 ✓"
     },
     {
       "id": "f08",
@@ -157,7 +152,7 @@
       "falsePositive": false,
       "disputed": false,
       "checks": 1,
-      "detail": "写错 期望≥1 实际1 ✓ | （覆盖 0.333 仅记录）"
+      "detail": "写错 期望≥1 实际1 ✓"
     },
     {
       "id": "f09",
@@ -166,7 +161,7 @@
       "falsePositive": false,
       "disputed": false,
       "checks": 1,
-      "detail": "写错 期望≥1 实际1 ✓ | （覆盖 0.667 仅记录）"
+      "detail": "写错 期望≥1 实际1 ✓"
     },
     {
       "id": "f10",
@@ -175,7 +170,7 @@
       "falsePositive": false,
       "disputed": false,
       "checks": 1,
-      "detail": "无据 期望≥1 实际2 ✓ | （覆盖 0.75 仅记录）"
+      "detail": "无据 期望≥1 实际2 ✓"
     },
     {
       "id": "f11",
@@ -184,7 +179,7 @@
       "falsePositive": false,
       "disputed": false,
       "checks": 1,
-      "detail": "无据 期望≥1 实际3 ✓ | （覆盖 0.75 仅记录）"
+      "detail": "无据 期望≥1 实际3 ✓"
     },
     {
       "id": "f12",
@@ -193,7 +188,7 @@
       "falsePositive": false,
       "disputed": false,
       "checks": 1,
-      "detail": "无据 期望≥1 实际2 ✓ | （覆盖 1 仅记录）"
+      "detail": "无据 期望≥1 实际2 ✓"
     },
     {
       "id": "f13",
@@ -202,7 +197,7 @@
       "falsePositive": false,
       "disputed": false,
       "checks": 1,
-      "detail": "无据 期望≥1 实际2 ✓ | （覆盖 0.75 仅记录）"
+      "detail": "无据 期望≥1 实际2 ✓"
     },
     {
       "id": "f14",
