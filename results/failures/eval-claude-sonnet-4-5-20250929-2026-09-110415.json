@@ -1,0 +1,50 @@
+{
+  "summary": {
+    "rubric_version": "f1.0",
+    "model": "claude-sonnet-4-5-20250929",
+    "prompt_version": "default",
+    "items": 1,
+    "run_failed": 1,
+    "detection_rate": null,
+    "detection": "0/0",
+    "missed_ids": [],
+    "false_positive_rate": null,
+    "false_positive": "0/0",
+    "false_positive_ids": [],
+    "coverage_pass": "0/0",
+    "coverage_failed_ids": [],
+    "unsupported_items_coverage": [],
+    "overall_hit_rate": null
+  },
+  "rows": [
+    {
+      "id": "f01",
+      "kind": "run_failed",
+      "hit": false,
+      "detail": "invalid"
+    }
+  ],
+  "items": [
+    {
+      "id": "f01",
+      "tags": [
+        "faithful",
+        "error:none"
+      ],
+      "note": null,
+      "expect": {
+        "contradicted": 0,
+        "unsupported": 0,
+        "min_coverage": 1
+      },
+      "judge": {
+        "status": "invalid",
+        "reason": "缺少 claims 数组",
+        "raw": "{\"result\":\"通过\",\"reason\":\"摘要的所有断言均可在原文中找到依据。逐项核对：(1)投资主体为星原科技，正确；(2)投资金额为自有资金1.2亿元，正确；(3)认购对象为云栖智能科技（深圳）有限公司，正确；(4)认购新增注册资本3000万元，正确；(5)占增资后注册资本的15%，正确；(6)已获董事会审议通过，原文明确提到第八届董事会第九次会议审议通过，正确；(7)无需提交股东大会审议，原文明确说明，正确；(8)不构成关联交易，原文明确说明，正确；(9)不构成重大资产重组，原文明确说明，正确。所有数字、主体、方向均与原文一致，未发现事实错误或凭空编造。\",\"错误列表\":[]}",
+        "rubric_version": "f1.0",
+        "model": "claude-sonnet-4-5-20250929",
+        "prompt_version": "v1.1"
+      }
+    }
+  ]
+}

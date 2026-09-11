@@ -1,0 +1,50 @@
+{
+  "summary": {
+    "rubric_version": "f1.0",
+    "model": "claude-sonnet-4-5-20250929",
+    "prompt_version": "default",
+    "items": 1,
+    "run_failed": 1,
+    "detection_rate": null,
+    "detection": "0/0",
+    "missed_ids": [],
+    "false_positive_rate": null,
+    "false_positive": "0/0",
+    "false_positive_ids": [],
+    "coverage_pass": "0/0",
+    "coverage_failed_ids": [],
+    "unsupported_items_coverage": [],
+    "overall_hit_rate": null
+  },
+  "rows": [
+    {
+      "id": "f01",
+      "kind": "run_failed",
+      "hit": false,
+      "detail": "invalid"
+    }
+  ],
+  "items": [
+    {
+      "id": "f01",
+      "tags": [
+        "faithful",
+        "error:none"
+      ],
+      "note": null,
+      "expect": {
+        "contradicted": 0,
+        "unsupported": 0,
+        "min_coverage": 1
+      },
+      "judge": {
+        "status": "invalid",
+        "reason": "缺少 claims 数组",
+        "raw": "{\"verdict\":\"通过\",\"faithful\":true,\"factual_errors\":[],\"fabrications\":[],\"summary\":\"摘要逐条核对：(1)投资主体星原科技-有据；(2)投资金额1.2亿元-有据；(3)资金来源自有资金-有据；(4)投资标的云栖智能科技(深圳)有限公司-有据；(5)认购新增注册资本3000万元-有据；(6)占增资后注册资本15%-有据；(7)已获董事会审议通过-有据(原文第八届董事会第九次会议审议通过)；(8)无需提交股东大会审议-有据；(9)不构成关联交易-有据；(10)不构成重大资产重组-有据。所有断言均可在原文找到对应依据，数字、比例、主体、结论方向完全一致，无事实错误或凭空编造。\"}",
+        "rubric_version": "f1.0",
+        "model": "claude-sonnet-4-5-20250929",
+        "prompt_version": "v1.1"
+      }
+    }
+  ]
+}

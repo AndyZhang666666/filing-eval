@@ -1,0 +1,50 @@
+{
+  "summary": {
+    "rubric_version": "f1.0",
+    "model": "claude-sonnet-4-5-20250929",
+    "prompt_version": "default",
+    "items": 1,
+    "run_failed": 1,
+    "detection_rate": null,
+    "detection": "0/0",
+    "missed_ids": [],
+    "false_positive_rate": null,
+    "false_positive": "0/0",
+    "false_positive_ids": [],
+    "coverage_pass": "0/0",
+    "coverage_failed_ids": [],
+    "unsupported_items_coverage": [],
+    "overall_hit_rate": null
+  },
+  "rows": [
+    {
+      "id": "f01",
+      "kind": "run_failed",
+      "hit": false,
+      "detail": "invalid"
+    }
+  ],
+  "items": [
+    {
+      "id": "f01",
+      "tags": [
+        "faithful",
+        "error:none"
+      ],
+      "note": null,
+      "expect": {
+        "contradicted": 0,
+        "unsupported": 0,
+        "min_coverage": 1
+      },
+      "judge": {
+        "status": "invalid",
+        "reason": "缺少 claims 数组",
+        "raw": "{\"verdict\":\"通过\",\"无据\":[],\"写错\":[],\"reason\":\"逐条核对摘要断言：\\n1. 主体：星原科技 ✓（原文简称'公司'即星原科技股份有限公司）\\n2. 资金来源：自有资金 ✓\\n3. 投资金额：1.2亿元 ✓\\n4. 认购标的：云栖智能科技（深圳）有限公司新增注册资本 ✓\\n5. 认购金额：3000万元 ✓\\n6. 持股比例：增资后注册资本的15% ✓\\n7. 审议主体：董事会 ✓\\n8. 审议结果：已通过 ✓（原文'审议通过'）\\n9. 无需提交股东大会审议 ✓\\n10. 不构成关联交易 ✓\\n11. 不构成重大资产重组 ✓（原文完整表述为'不构成《上市公司重大资产重组管理办法》规定的重大资产重组'，摘要简化为'不构成重大资产重组'，意思一致）\\n\\n所有数字、主体、方向、事实均与原文一致，措辞简化但未改变含义。\"}",
+        "rubric_version": "f1.0",
+        "model": "claude-sonnet-4-5-20250929",
+        "prompt_version": "v1.1"
+      }
+    }
+  ]
+}

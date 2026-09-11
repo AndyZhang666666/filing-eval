@@ -1,0 +1,50 @@
+{
+  "summary": {
+    "rubric_version": "f1.0",
+    "model": "claude-sonnet-4-5-20250929",
+    "prompt_version": "default",
+    "items": 1,
+    "run_failed": 1,
+    "detection_rate": null,
+    "detection": "0/0",
+    "missed_ids": [],
+    "false_positive_rate": null,
+    "false_positive": "0/0",
+    "false_positive_ids": [],
+    "coverage_pass": "0/0",
+    "coverage_failed_ids": [],
+    "unsupported_items_coverage": [],
+    "overall_hit_rate": null
+  },
+  "rows": [
+    {
+      "id": "f01",
+      "kind": "run_failed",
+      "hit": false,
+      "detail": "parse_error"
+    }
+  ],
+  "items": [
+    {
+      "id": "f01",
+      "tags": [
+        "faithful",
+        "error:none"
+      ],
+      "note": null,
+      "expect": {
+        "contradicted": 0,
+        "unsupported": 0,
+        "min_coverage": 1
+      },
+      "judge": {
+        "status": "parse_error",
+        "reason": "输出里找不到 JSON 对象",
+        "raw": "# 合规审核结果\n\n## 一、逐条断言拆解与核对\n\n| 序号 | 摘要断言 | 原文依据 | 判定 |\n|------|----------|----------|------|\n| 1 | 星原科技拟以自有资金1.2亿元认购 | 公司拟以自有资金人民币1.2亿元 | ✓ 有据 |\n| 2 | 认购云栖智能科技（深圳）有限公司新增注册资本3000万元 | 认购云栖智能科技（深圳）有限公司新增注册资本人民币3000万元 | ✓ 有据 |\n| 3 | 占其增资后注册资本的15% | 占其增资后注册资本的15% | ✓ 有据 |\n| 4 | 该议案已获董事会审议通过 | 于2026年3月12日召开第八届董事会第九次会议，审议通过《关于对外投资的议案》 | ✓ 有据 |\n| 5 | 无需提交股东大会审议 | 本次投资经董事会审议通过后无需提交股东大会审议 | ✓ 有据 |\n| 6 | 不构成关联交易 | 本次投资不构成关联交易 | ✓ 有据 |\n| 7 | 不构成重大资产重组 | 亦不构成《上市公司重大资产重组管理办法》规定的重大资产重组 | ✓ 有据 |\n\n## 二、核对结果\n\n**✅ 未发现事实错误或凭空编造**\n\n### 核对说明：\n- **数字核对**：1.2亿元、3000万元、15% 均与原文一致\n- **主体核对**：投资方（星原科技）、被投资方（云栖智能科技（深圳）有限公司）",
+        "rubric_version": "f1.0",
+        "model": "claude-sonnet-4-5-20250929",
+        "prompt_version": "v1.1"
+      }
+    }
+  ]
+}

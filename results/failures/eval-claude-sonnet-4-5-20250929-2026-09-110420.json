@@ -1,0 +1,50 @@
+{
+  "summary": {
+    "rubric_version": "f1.0",
+    "model": "claude-sonnet-4-5-20250929",
+    "prompt_version": "default",
+    "items": 1,
+    "run_failed": 1,
+    "detection_rate": null,
+    "detection": "0/0",
+    "missed_ids": [],
+    "false_positive_rate": null,
+    "false_positive": "0/0",
+    "false_positive_ids": [],
+    "coverage_pass": "0/0",
+    "coverage_failed_ids": [],
+    "unsupported_items_coverage": [],
+    "overall_hit_rate": null
+  },
+  "rows": [
+    {
+      "id": "f01",
+      "kind": "run_failed",
+      "hit": false,
+      "detail": "invalid"
+    }
+  ],
+  "items": [
+    {
+      "id": "f01",
+      "tags": [
+        "faithful",
+        "error:none"
+      ],
+      "note": null,
+      "expect": {
+        "contradicted": 0,
+        "unsupported": 0,
+        "min_coverage": 1
+      },
+      "judge": {
+        "status": "invalid",
+        "reason": "缺少 claims 数组",
+        "raw": "{\"result\":\"通过\",\"overall_reason\":\"已将摘要拆分为7项断言逐一核对：投资主体、投资金额、资金来源、认购标的、新增注册资本金额、持股比例、董事会审议通过、无需股东大会审议、不构成关联交易、不构成重大资产重组。所有断言均在原文中找到对应依据，数字、主体、方向完全一致，未发现事实错误或无依据编造。\",\"factual_errors\":[],\"unsupported_claims\":[]}",
+        "rubric_version": "f1.0",
+        "model": "claude-sonnet-4-5-20250929",
+        "prompt_version": "v1.1"
+      }
+    }
+  ]
+}
