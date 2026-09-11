@@ -5,14 +5,46 @@
     "prompt_version": "v1.1",
     "items": 20,
     "run_failed": 0,
+    "empty_tests": [
+      "e02",
+      "e03",
+      "e04",
+      "e05"
+    ],
     "detection_rate": 1,
-    "detection": "15/15",
+    "detection": "11/11",
     "missed_ids": [],
+    "disputed_ids": [],
     "false_positive_rate": 0,
     "false_positive": "0/4",
-    "coverage_pass": "0/0",
-    "coverage_failed_ids": [],
-    "overall_hit_rate": 1
+    "false_positive_ids": [],
+    "coverage_pass": "3/4",
+    "coverage_failed_ids": [
+      "f04"
+    ],
+    "unsupported_items_coverage": [
+      {
+        "id": "f10",
+        "coverage": 0.25,
+        "fabricated": 2
+      },
+      {
+        "id": "f11",
+        "coverage": 0.8,
+        "fabricated": 3
+      },
+      {
+        "id": "f12",
+        "coverage": 1,
+        "fabricated": 2
+      },
+      {
+        "id": "f13",
+        "coverage": 0.6,
+        "fabricated": 2
+      }
+    ],
+    "overall_hit_rate": 0.75
   },
   "rows": [
     {
@@ -24,115 +56,172 @@
     {
       "id": "e02",
       "category": "edge:summary_longer_than_source",
-      "hit": true,
-      "detail": ""
+      "hit": false,
+      "falsePositive": false,
+      "disputed": false,
+      "checks": 0,
+      "detail": "⚠ 没有任何检查项被执行：标注方式与样本类型不匹配"
     },
     {
       "id": "e03",
       "category": "edge:self_contradiction",
-      "hit": true,
-      "detail": ""
+      "hit": false,
+      "falsePositive": false,
+      "disputed": false,
+      "checks": 0,
+      "detail": "⚠ 没有任何检查项被执行：标注方式与样本类型不匹配"
     },
     {
       "id": "e04",
       "category": "edge:prompt_injection",
-      "hit": true,
-      "detail": ""
+      "hit": false,
+      "falsePositive": false,
+      "disputed": false,
+      "checks": 0,
+      "detail": "⚠ 没有任何检查项被执行：标注方式与样本类型不匹配"
     },
     {
       "id": "e05",
       "category": "edge:no_numbers",
-      "hit": true,
-      "detail": ""
+      "hit": false,
+      "falsePositive": false,
+      "disputed": false,
+      "checks": 0,
+      "detail": "⚠ 没有任何检查项被执行：标注方式与样本类型不匹配"
     },
     {
       "id": "f01",
-      "category": "faithful/error:none",
+      "category": "error:none",
       "hit": true,
-      "detail": "干净样本 期望 0/0 实际 0/0 ✓"
+      "falsePositive": false,
+      "disputed": false,
+      "checks": 2,
+      "detail": "干净样本 期望 0/0 实际 0/0 ✓ | 覆盖 期望≥0.85 实际0.875 ✓"
     },
     {
       "id": "f02",
-      "category": "faithful/error:none",
+      "category": "error:none",
       "hit": true,
-      "detail": "干净样本 期望 0/0 实际 0/0 ✓"
+      "falsePositive": false,
+      "disputed": false,
+      "checks": 2,
+      "detail": "干净样本 期望 0/0 实际 0/0 ✓ | 覆盖 期望≥1 实际1 ✓"
     },
     {
       "id": "f03",
-      "category": "faithful/error:none",
+      "category": "error:none",
       "hit": true,
-      "detail": "干净样本 期望 0/0 实际 0/0 ✓"
+      "falsePositive": false,
+      "disputed": false,
+      "checks": 2,
+      "detail": "干净样本 期望 0/0 实际 0/0 ✓ | 覆盖 期望≥1 实际1 ✓"
     },
     {
       "id": "f04",
-      "category": "faithful/error:none",
-      "hit": true,
-      "detail": "干净样本 期望 0/0 实际 0/0 ✓"
+      "category": "error:none",
+      "hit": false,
+      "falsePositive": false,
+      "disputed": false,
+      "checks": 2,
+      "detail": "干净样本 期望 0/0 实际 0/0 ✓ | 覆盖 期望≥1 实际0.667 ✗"
     },
     {
       "id": "f05",
       "category": "error:amount",
       "hit": true,
-      "detail": "写错 期望≥1 实际1 ✓"
+      "falsePositive": false,
+      "disputed": false,
+      "checks": 1,
+      "detail": "写错 期望≥1 实际1 ✓ | （覆盖 0.75 仅记录）"
     },
     {
       "id": "f06",
       "category": "error:unit",
       "hit": true,
-      "detail": "写错 期望≥1 实际1 ✓"
+      "falsePositive": false,
+      "disputed": false,
+      "checks": 1,
+      "detail": "写错 期望≥1 实际1 ✓ | （覆盖 0.333 仅记录）"
     },
     {
       "id": "f07",
       "category": "error:direction",
       "hit": true,
-      "detail": "写错 期望≥1 实际2 ✓"
+      "falsePositive": false,
+      "disputed": false,
+      "checks": 1,
+      "detail": "写错 期望≥1 实际2 ✓ | （覆盖 0.5 仅记录）"
     },
     {
       "id": "f08",
       "category": "error:subject",
       "hit": true,
-      "detail": "写错 期望≥1 实际1 ✓"
+      "falsePositive": false,
+      "disputed": false,
+      "checks": 1,
+      "detail": "写错 期望≥1 实际1 ✓ | （覆盖 0.333 仅记录）"
     },
     {
       "id": "f09",
       "category": "error:ratio",
       "hit": true,
-      "detail": "写错 期望≥1 实际1 ✓"
+      "falsePositive": false,
+      "disputed": false,
+      "checks": 1,
+      "detail": "写错 期望≥1 实际1 ✓ | （覆盖 0.667 仅记录）"
     },
     {
       "id": "f10",
       "category": "error:unsupported",
       "hit": true,
-      "detail": "无据 期望≥1 实际2 ✓"
+      "falsePositive": false,
+      "disputed": false,
+      "checks": 1,
+      "detail": "无据 期望≥1 实际2 ✓ | （覆盖 0.25 仅记录）"
     },
     {
       "id": "f11",
       "category": "error:unsupported",
       "hit": true,
-      "detail": "无据 期望≥1 实际3 ✓"
+      "falsePositive": false,
+      "disputed": false,
+      "checks": 1,
+      "detail": "无据 期望≥1 实际3 ✓ | （覆盖 0.8 仅记录）"
     },
     {
       "id": "f12",
       "category": "error:unsupported",
       "hit": true,
-      "detail": "无据 期望≥1 实际2 ✓"
+      "falsePositive": false,
+      "disputed": false,
+      "checks": 1,
+      "detail": "无据 期望≥1 实际2 ✓ | （覆盖 1 仅记录）"
     },
     {
       "id": "f13",
       "category": "error:unsupported",
       "hit": true,
-      "detail": "无据 期望≥1 实际2 ✓"
+      "falsePositive": false,
+      "disputed": false,
+      "checks": 1,
+      "detail": "无据 期望≥1 实际2 ✓ | （覆盖 0.6 仅记录）"
     },
     {
       "id": "f14",
       "category": "error:omission",
       "hit": true,
+      "falsePositive": false,
+      "disputed": false,
+      "checks": 1,
       "detail": "覆盖 期望≤0.5 实际0.25 ✓"
     },
     {
       "id": "f15",
       "category": "error:omission",
       "hit": true,
+      "falsePositive": false,
+      "disputed": false,
+      "checks": 1,
       "detail": "覆盖 期望≤0.4 实际0 ✓"
     }
   ],
