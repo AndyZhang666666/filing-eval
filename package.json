@@ -9,7 +9,7 @@
     "eval": "node scripts/run-eval.mjs",
     "stability": "node scripts/stability.mjs",
     "adversarial": "node scripts/adversarial.mjs",
-    "agreement": "node scripts/agreement.mjs"
+    "rescore": "node scripts/rescore.mjs"
   },
   "dependencies": {
     "next": "15.5.3",

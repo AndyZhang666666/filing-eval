@@ -103,6 +103,7 @@ npm run eval                          # 主集 20 条
 TIER=hard npm run eval                # 困难集 8 条
 npm run stability                     # 10 条 × 3 次
 npm run adversarial                   # 5 种注入 + 超长摘要
+npm run rescore                       # 判据改了就重算历史结果，不重复调模型
 node scripts/rescore.mjs              # 改了判据后，重算历史结果不重跑模型
 ```
 
