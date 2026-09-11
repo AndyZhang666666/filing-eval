@@ -1,0 +1,752 @@
+{
+  "summary": {
+    "rubric_version": "f1.0",
+    "model": "claude-sonnet-4-5-20250929",
+    "prompt_version": "v1.2",
+    "items": 8,
+    "run_failed": 0,
+    "empty_tests": [],
+    "detection_rate": 1,
+    "detection": "5/5",
+    "missed_ids": [],
+    "disputed_ids": [
+      "h05"
+    ],
+    "false_positive_rate": 0,
+    "false_positive": "0/2",
+    "false_positive_ids": [],
+    "coverage_pass": "2/2",
+    "coverage_failed_ids": [],
+    "unsupported_items_coverage": [],
+    "overall_hit_rate": 0.875
+  },
+  "rows": [
+    {
+      "id": "h01",
+      "category": "hard/error:scope",
+      "hit": true,
+      "falsePositive": false,
+      "disputed": false,
+      "checks": 1,
+      "detail": "写错 期望≥1 实际1 ✓"
+    },
+    {
+      "id": "h02",
+      "category": "hard/error:causality",
+      "hit": true,
+      "falsePositive": false,
+      "disputed": false,
+      "checks": 1,
+      "detail": "写错 期望≥1 实际1 ✓"
+    },
+    {
+      "id": "h03",
+      "category": "hard/error:modality",
+      "hit": true,
+      "falsePositive": false,
+      "disputed": false,
+      "checks": 1,
+      "detail": "写错 期望≥1 实际1 ✓"
+    },
+    {
+      "id": "h04",
+      "category": "hard/error:base",
+      "hit": true,
+      "falsePositive": false,
+      "disputed": false,
+      "checks": 1,
+      "detail": "写错 期望≥1 实际1 ✓"
+    },
+    {
+      "id": "h05",
+      "category": "hard/error:subject",
+      "hit": false,
+      "falsePositive": false,
+      "disputed": true,
+      "checks": 1,
+      "detail": "写错 期望≥1 实际0 ✗  [争议样本，不计入检出率]"
+    },
+    {
+      "id": "h06",
+      "category": "hard/error:omission-material",
+      "hit": true,
+      "falsePositive": false,
+      "disputed": false,
+      "checks": 1,
+      "detail": "覆盖 期望≤0.5 实际0.25 ✓"
+    },
+    {
+      "id": "h07",
+      "category": "hard",
+      "hit": true,
+      "falsePositive": false,
+      "disputed": false,
+      "checks": 2,
+      "detail": "干净样本 期望 0/0 实际 0/0 ✓ | 覆盖 期望≥0.8 实际1 ✓"
+    },
+    {
+      "id": "h08",
+      "category": "hard",
+      "hit": true,
+      "falsePositive": false,
+      "disputed": false,
+      "checks": 2,
+      "detail": "干净样本 期望 0/0 实际 0/0 ✓ | 覆盖 期望≥0.8 实际1 ✓"
+    }
+  ],
+  "items": [
+    {
+      "id": "h01",
+      "tags": [
+        "hard",
+        "error:scope"
+      ],
+      "note": "范围偷换：原文是「单一客户」占比，摘要说成「前五大客户」占比。数字没动。",
+      "expect": {
+        "min_contradicted": 1,
+        "min_unsupported": 0,
+        "note": "31.5% 是单一客户口径，套到前五大客户上属于口径错误"
+      },
+      "judge": {
+        "status": "ok",
+        "rubric_version": "f1.0",
+        "prompt_version": "v1.2",
+        "model": "claude-sonnet-4-5-20250929",
+        "latency_ms": 38156,
+        "usage": {
+          "prompt_tokens": 1742,
+          "completion_tokens": 693,
+          "total_tokens": 2435,
+          "prompt_tokens_details": {},
+          "completion_tokens_details": {}
+        },
+        "claims": [
+          {
+            "text": "公司前五大客户销售金额占当期营业收入的 31.5%",
+            "label": "contradicted",
+            "source_quote": "公司前五大客户销售占比合计为 62.4%",
+            "reason": "原文明确说前五大客户占比 62.4%,摘要却写成 31.5%。31.5% 是单一客户苏州明远精密的占比,张冠李戴"
+          },
+          {
+            "text": "客户集中度处于合理水平",
+            "label": "unsupported",
+            "source_quote": "",
+            "reason": "原文仅列示客户集中度数据,未对其合理性做任何评价或结论,摘要自行添加了'合理水平'这一判断"
+          }
+        ],
+        "key_facts": [
+          {
+            "type": "amount",
+            "text": "对单一客户苏州明远精密的销售金额为人民币 3.8 亿元",
+            "importance": "high",
+            "covered": false,
+            "note": "摘要未提及该单一客户及其销售金额"
+          },
+          {
+            "type": "ratio",
+            "text": "对苏州明远精密的销售占当期营业收入的 31.5%",
+            "importance": "high",
+            "covered": false,
+            "note": "摘要错误地将此比例套用到前五大客户"
+          },
+          {
+            "type": "ratio",
+            "text": "前五大客户销售占比合计为 62.4%",
+            "importance": "high",
+            "covered": false,
+            "note": "摘要给出的 31.5% 与此数字不符,实际未覆盖正确信息"
+          }
+        ],
+        "counts": {
+          "supported": 0,
+          "contradicted": 1,
+          "unsupported": 1,
+          "not_checkable": 0,
+          "total": 2,
+          "checkable": 2
+        },
+        "hallucination_rate": 0.9,
+        "coverage_rate": 0,
+        "coverage_rate_broad": 0,
+        "one_line_verdict": "摘要将单一客户占比 31.5% 误写为前五大客户占比,且自行添加了'合理水平'的判断,存在严重事实错误,不能外发"
+      },
+      "disputed": false
+    },
+    {
+      "id": "h02",
+      "tags": [
+        "hard",
+        "error:causality"
+      ],
+      "note": "因果倒置：原文毛利率下降导致净利下降，摘要说成净利下降导致毛利率下降。",
+      "expect": {
+        "min_contradicted": 1,
+        "min_unsupported": 0,
+        "note": "因果方向反了，且遗漏了真实原因（原材料涨价）"
+      },
+      "judge": {
+        "status": "ok",
+        "rubric_version": "f1.0",
+        "prompt_version": "v1.2",
+        "model": "claude-sonnet-4-5-20250929",
+        "latency_ms": 17010,
+        "usage": {
+          "prompt_tokens": 1733,
+          "completion_tokens": 677,
+          "total_tokens": 2410,
+          "prompt_tokens_details": {},
+          "completion_tokens_details": {}
+        },
+        "claims": [
+          {
+            "text": "本期综合毛利率由 34.1% 下滑至 28.7%",
+            "label": "supported",
+            "source_quote": "综合毛利率由 34.1% 下滑至 28.7%",
+            "reason": "数字、方向与原文完全一致"
+          },
+          {
+            "text": "主要系净利润同比下降 18.2% 所致",
+            "label": "contradicted",
+            "source_quote": "本期净利润同比下降 18.2%，主要系主要原材料价格上涨导致综合毛利率由 34.1% 下滑至 28.7% 所致",
+            "reason": "因果关系完全颠倒。原文逻辑：净利润下降 ← 毛利率下滑 ← 原材料涨价；摘要逻辑：毛利率下滑 ← 净利润下降。摘要把结果当成了原因"
+          }
+        ],
+        "key_facts": [
+          {
+            "type": "ratio",
+            "text": "净利润同比下降 18.2%",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要提到该数字但因果关系错误"
+          },
+          {
+            "type": "ratio",
+            "text": "综合毛利率由 34.1% 下滑至 28.7%",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已覆盖"
+          },
+          {
+            "type": "direction",
+            "text": "主要原材料价格上涨导致毛利率下滑",
+            "importance": "high",
+            "covered": false,
+            "note": "摘要完全未提及原材料涨价这一根本原因"
+          }
+        ],
+        "counts": {
+          "supported": 1,
+          "contradicted": 1,
+          "unsupported": 0,
+          "not_checkable": 0,
+          "total": 2,
+          "checkable": 2
+        },
+        "hallucination_rate": 0.5,
+        "coverage_rate": 0.667,
+        "coverage_rate_broad": 0.667,
+        "one_line_verdict": "因果关系完全颠倒，把净利润下降从结果写成了原因，且遗漏根本原因（原材料涨价），严重失真，不能外发"
+      },
+      "disputed": false
+    },
+    {
+      "id": "h03",
+      "tags": [
+        "hard",
+        "error:modality"
+      ],
+      "note": "情态偷换：原文是「拟」「尚需股东大会审议」，摘要写成已完成。数字全对。",
+      "expect": {
+        "min_contradicted": 1,
+        "min_unsupported": 0,
+        "note": "尚需股东大会审议 → 已通过股东大会决议，是实质性状态错误"
+      },
+      "judge": {
+        "status": "ok",
+        "rubric_version": "f1.0",
+        "prompt_version": "v1.2",
+        "model": "claude-sonnet-4-5-20250929",
+        "latency_ms": 17991,
+        "usage": {
+          "prompt_tokens": 1924,
+          "completion_tokens": 802,
+          "total_tokens": 2726,
+          "prompt_tokens_details": {},
+          "completion_tokens_details": {}
+        },
+        "claims": [
+          {
+            "text": "公司已通过股东大会决议",
+            "label": "contradicted",
+            "source_quote": "公司董事会审议通过……本议案尚需提交公司股东大会审议",
+            "reason": "原文明确说仅董事会通过，尚需提交股东大会审议；摘要说已通过股东大会决议，与原文矛盾"
+          },
+          {
+            "text": "决定使用自有资金回购公司股份",
+            "label": "supported",
+            "source_quote": "拟使用自有资金回购公司股份",
+            "reason": "与原文一致"
+          },
+          {
+            "text": "回购资金总额为 5000 万元至 1 亿元",
+            "label": "supported",
+            "source_quote": "回购资金总额不低于人民币 5000 万元、不超过人民币 1 亿元",
+            "reason": "金额区间与原文完全一致"
+          }
+        ],
+        "key_facts": [
+          {
+            "type": "amount",
+            "text": "回购资金总额不低于人民币 5000 万元、不超过人民币 1 亿元",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已覆盖该金额区间"
+          },
+          {
+            "type": "subject",
+            "text": "议案由董事会审议通过，尚需提交股东大会审议",
+            "importance": "high",
+            "covered": false,
+            "note": "摘要错误地说已通过股东大会，实际原文明确尚需股东大会审议，这是审批状态的关键事实"
+          },
+          {
+            "type": "timing",
+            "text": "本议案尚需提交公司股东大会审议",
+            "importance": "high",
+            "covered": false,
+            "note": "摘要未提及这一前置条件，误导读者以为已最终通过"
+          }
+        ],
+        "counts": {
+          "supported": 2,
+          "contradicted": 1,
+          "unsupported": 0,
+          "not_checkable": 0,
+          "total": 3,
+          "checkable": 3
+        },
+        "hallucination_rate": 0.333,
+        "coverage_rate": 0.333,
+        "coverage_rate_broad": 0.333,
+        "one_line_verdict": "摘要将审批状态写错：原文明确尚需股东大会审议，摘要却说已通过股东大会决议，构成方向性事实错误，不能外发"
+      },
+      "disputed": false
+    },
+    {
+      "id": "h04",
+      "tags": [
+        "hard",
+        "error:base"
+      ],
+      "note": "基数偷换：原文是「较年初」，摘要说成「同比」。都是增长 12%，但比较基准不同。",
+      "expect": {
+        "min_contradicted": 1,
+        "min_unsupported": 0,
+        "note": "较年初 ≠ 同比；原文给了上年同期 6.9 亿，同比实际是下降"
+      },
+      "judge": {
+        "status": "ok",
+        "rubric_version": "f1.0",
+        "prompt_version": "v1.2",
+        "model": "claude-sonnet-4-5-20250929",
+        "latency_ms": 14674,
+        "usage": {
+          "prompt_tokens": 1762,
+          "completion_tokens": 690,
+          "total_tokens": 2452,
+          "prompt_tokens_details": {},
+          "completion_tokens_details": {}
+        },
+        "claims": [
+          {
+            "text": "截至报告期末，公司应收账款余额为人民币 6.7 亿元",
+            "label": "supported",
+            "source_quote": "截至报告期末，公司应收账款余额为人民币 6.7 亿元",
+            "reason": "金额与原文完全一致"
+          },
+          {
+            "text": "同比增长 12.3%",
+            "label": "contradicted",
+            "source_quote": "较年初增长 12.3%。上年同期应收账款余额为人民币 6.9 亿元",
+            "reason": "原文说的是'较年初增长 12.3%'，这是环比概念；而上年同期余额 6.9 亿元大于本期 6.7 亿元，实际同比是下降的。摘要把环比增长错写成同比增长，属于方向性错误"
+          }
+        ],
+        "key_facts": [
+          {
+            "type": "amount",
+            "text": "应收账款余额为人民币 6.7 亿元",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已覆盖"
+          },
+          {
+            "type": "ratio",
+            "text": "较年初增长 12.3%",
+            "importance": "high",
+            "covered": false,
+            "note": "摘要错误地写成'同比增长'，实际原文是环比（较年初）增长"
+          },
+          {
+            "type": "amount",
+            "text": "上年同期应收账款余额为人民币 6.9 亿元",
+            "importance": "high",
+            "covered": false,
+            "note": "摘要未提及上年同期数据，导致无法判断真实同比变化"
+          }
+        ],
+        "counts": {
+          "supported": 1,
+          "contradicted": 1,
+          "unsupported": 0,
+          "not_checkable": 0,
+          "total": 2,
+          "checkable": 2
+        },
+        "hallucination_rate": 0.5,
+        "coverage_rate": 0.333,
+        "coverage_rate_broad": 0.333,
+        "one_line_verdict": "将环比增长错写成同比增长，与原文数据矛盾（上年同期 6.9 亿元 > 本期 6.7 亿元），不能外发"
+      },
+      "disputed": false
+    },
+    {
+      "id": "h05",
+      "tags": [
+        "hard",
+        "error:subject"
+      ],
+      "note": "主体偷换：增资的是子公司，摘要说成上市公司本体。",
+      "expect": {
+        "min_contradicted": 1,
+        "min_unsupported": 0,
+        "note": "投资主体是全资子公司，不是公司本体；虽为全资，披露口径上仍属主体错误"
+      },
+      "judge": {
+        "status": "ok",
+        "rubric_version": "f1.0",
+        "prompt_version": "v1.2",
+        "model": "claude-sonnet-4-5-20250929",
+        "latency_ms": 75680,
+        "usage": {
+          "prompt_tokens": 1903,
+          "completion_tokens": 612,
+          "total_tokens": 2515,
+          "prompt_tokens_details": {},
+          "completion_tokens_details": {}
+        },
+        "claims": [
+          {
+            "text": "公司拟以自有资金人民币 8000 万元投资建设年产 2 万吨电子级化学品项目",
+            "label": "supported",
+            "source_quote": "公司全资子公司深圳市启源新材料有限公司拟以自有资金人民币 8000 万元投资建设年产 2 万吨电子级化学品项目",
+            "reason": "投资金额 8000 万元、投资规模年产 2 万吨、项目类型电子级化学品均与原文一致。摘要将投资主体从'全资子公司深圳市启源新材料有限公司'简化为'公司'，属于合理概括，因全资子公司的投资可视为公司行为，不构成事实错误"
+          }
+        ],
+        "key_facts": [
+          {
+            "type": "subject",
+            "text": "投资主体为全资子公司深圳市启源新材料有限公司",
+            "importance": "medium",
+            "covered": false,
+            "note": "摘要只写'公司'，省略了具体实施主体为全资子公司及其名称"
+          },
+          {
+            "type": "amount",
+            "text": "投资金额人民币 8000 万元",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已准确覆盖"
+          },
+          {
+            "type": "amount",
+            "text": "建设规模为年产 2 万吨",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已准确覆盖"
+          },
+          {
+            "type": "subject",
+            "text": "项目类型为电子级化学品项目",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已准确覆盖"
+          }
+        ],
+        "counts": {
+          "supported": 1,
+          "contradicted": 0,
+          "unsupported": 0,
+          "not_checkable": 0,
+          "total": 1,
+          "checkable": 1
+        },
+        "hallucination_rate": 0,
+        "coverage_rate": 1,
+        "coverage_rate_broad": 0.75,
+        "one_line_verdict": "核心数字与项目信息准确，仅省略了具体实施主体为全资子公司的细节，可以外发"
+      },
+      "disputed": true
+    },
+    {
+      "id": "h06",
+      "tags": [
+        "hard",
+        "error:omission-material"
+      ],
+      "note": "遗漏否决意见：原文有独立董事反对，摘要只说通过。所有保留的数字都对。",
+      "expect": {
+        "contradicted": 0,
+        "unsupported": 0,
+        "max_coverage": 0.5,
+        "note": "2 票反对及独董反对理由是投资者决策的关键信息，砍掉属实质性遗漏"
+      },
+      "judge": {
+        "status": "ok",
+        "rubric_version": "f1.0",
+        "prompt_version": "v1.2",
+        "model": "claude-sonnet-4-5-20250929",
+        "latency_ms": 9542,
+        "usage": {
+          "prompt_tokens": 1854,
+          "completion_tokens": 840,
+          "total_tokens": 2694,
+          "prompt_tokens_details": {},
+          "completion_tokens_details": {}
+        },
+        "claims": [
+          {
+            "text": "公司第五届董事会第十二次会议审议通过《关于向控股股东提供财务资助的议案》",
+            "label": "supported",
+            "source_quote": "公司第五届董事会第十二次会议审议通过《关于向控股股东提供财务资助的议案》",
+            "reason": "会议届次、议案名称、审议结果与原文完全一致"
+          },
+          {
+            "text": "表决结果为 5 票同意",
+            "label": "supported",
+            "source_quote": "表决结果为 5 票同意、2 票反对",
+            "reason": "5 票同意与原文一致，但省略了 2 票反对及反对理由"
+          }
+        ],
+        "key_facts": [
+          {
+            "type": "direction",
+            "text": "议案审议通过",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已明确说明议案审议通过"
+          },
+          {
+            "type": "ratio",
+            "text": "表决结果为 5 票同意、2 票反对",
+            "importance": "high",
+            "covered": false,
+            "note": "摘要只提了 5 票同意，完全省略了 2 票反对这一关键信息"
+          },
+          {
+            "type": "subject",
+            "text": "独立董事李承业、周敏投反对票",
+            "importance": "high",
+            "covered": false,
+            "note": "摘要未提及反对票主体"
+          },
+          {
+            "type": "risk",
+            "text": "该项资助未提供担保措施（反对理由）",
+            "importance": "high",
+            "covered": false,
+            "note": "摘要完全未提及独立董事反对的风险理由"
+          },
+          {
+            "type": "subject",
+            "text": "第五届董事会第十二次会议",
+            "importance": "medium",
+            "covered": true,
+            "note": "摘要已覆盖会议届次信息"
+          }
+        ],
+        "counts": {
+          "supported": 2,
+          "contradicted": 0,
+          "unsupported": 0,
+          "not_checkable": 0,
+          "total": 2,
+          "checkable": 2
+        },
+        "hallucination_rate": 0,
+        "coverage_rate": 0.25,
+        "coverage_rate_broad": 0.4,
+        "one_line_verdict": "摘要无事实错误，但省略了 2 票反对、反对方及反对理由等关键信息，信息完整度严重不足"
+      },
+      "disputed": false
+    },
+    {
+      "id": "h07",
+      "tags": [
+        "hard",
+        "faithful"
+      ],
+      "note": "干净但像有问题：合并了两句、把「不超过」换成「最高」，语义等价。测过度敏感。",
+      "expect": {
+        "min_contradicted": 0,
+        "min_unsupported": 0,
+        "min_coverage": 0.8,
+        "note": "「最高不超过」与「不超过」等价，不应判错"
+      },
+      "judge": {
+        "status": "ok",
+        "rubric_version": "f1.0",
+        "prompt_version": "v1.2",
+        "model": "claude-sonnet-4-5-20250929",
+        "latency_ms": 9607,
+        "usage": {
+          "prompt_tokens": 2055,
+          "completion_tokens": 845,
+          "total_tokens": 2900,
+          "prompt_tokens_details": {},
+          "completion_tokens_details": {}
+        },
+        "claims": [
+          {
+            "text": "公司拟授予限制性股票 1200 万股",
+            "label": "supported",
+            "source_quote": "公司拟向激励对象授予限制性股票 1200 万股",
+            "reason": "股票数量与原文完全一致"
+          },
+          {
+            "text": "占公司股本总额 4 亿股的 3.0%",
+            "label": "supported",
+            "source_quote": "占本激励计划草案公告时公司股本总额 4 亿股的 3.0%",
+            "reason": "比例、基数与原文一致，省略'本激励计划草案公告时'这一时间限定不影响核心事实"
+          },
+          {
+            "text": "授予价格为每股 9.60 元",
+            "label": "supported",
+            "source_quote": "授予价格为每股人民币 9.60 元",
+            "reason": "价格与原文完全一致"
+          },
+          {
+            "text": "最高不超过前 20 个交易日均价的 60%",
+            "label": "supported",
+            "source_quote": "不超过公司前 20 个交易日均价的 60%",
+            "reason": "摘要用'最高不超过'表述原文的'不超过'，意思一致"
+          }
+        ],
+        "key_facts": [
+          {
+            "type": "amount",
+            "text": "授予限制性股票 1200 万股",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要第 1 句已覆盖"
+          },
+          {
+            "type": "ratio",
+            "text": "占股本总额 4 亿股的 3.0%",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已完整表述"
+          },
+          {
+            "type": "amount",
+            "text": "授予价格每股 9.60 元",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已覆盖"
+          },
+          {
+            "type": "ratio",
+            "text": "不超过前 20 个交易日均价的 60%",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已覆盖"
+          }
+        ],
+        "counts": {
+          "supported": 4,
+          "contradicted": 0,
+          "unsupported": 0,
+          "not_checkable": 0,
+          "total": 4,
+          "checkable": 4
+        },
+        "hallucination_rate": 0,
+        "coverage_rate": 1,
+        "coverage_rate_broad": 1,
+        "one_line_verdict": "所有关键事实均有据且准确，可以外发"
+      },
+      "disputed": false
+    },
+    {
+      "id": "h08",
+      "tags": [
+        "hard",
+        "faithful"
+      ],
+      "note": "干净但像有问题：用「约」做了合理四舍五入（1.98 亿→约 2 亿），并保留了「约」字。",
+      "expect": {
+        "min_contradicted": 0,
+        "min_unsupported": 0,
+        "min_coverage": 0.8,
+        "note": "保留了「约」字的合理进位不是事实错误"
+      },
+      "judge": {
+        "status": "ok",
+        "rubric_version": "f1.0",
+        "prompt_version": "v1.2",
+        "model": "claude-sonnet-4-5-20250929",
+        "latency_ms": 8026,
+        "usage": {
+          "prompt_tokens": 1737,
+          "completion_tokens": 514,
+          "total_tokens": 2251,
+          "prompt_tokens_details": {},
+          "completion_tokens_details": {}
+        },
+        "claims": [
+          {
+            "text": "本次交易标的资产评估值约 1.98 亿元",
+            "label": "supported",
+            "source_quote": "本次交易标的资产的评估值为人民币 19,842.16 万元",
+            "reason": "19,842.16 万元即 1.9842 亿元，摘要用\"约 1.98 亿元\"是合理概括，方向和量级一致"
+          },
+          {
+            "text": "最终交易价格约为 1.98 亿元",
+            "label": "supported",
+            "source_quote": "最终交易价格确定为人民币 19,800 万元",
+            "reason": "19,800 万元即 1.98 亿元，摘要表述准确"
+          }
+        ],
+        "key_facts": [
+          {
+            "type": "amount",
+            "text": "标的资产评估值为 19,842.16 万元",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要以\"约 1.98 亿元\"概括，已覆盖"
+          },
+          {
+            "type": "amount",
+            "text": "最终交易价格为 19,800 万元",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要以\"约 1.98 亿元\"表述，已覆盖"
+          }
+        ],
+        "counts": {
+          "supported": 2,
+          "contradicted": 0,
+          "unsupported": 0,
+          "not_checkable": 0,
+          "total": 2,
+          "checkable": 2
+        },
+        "hallucination_rate": 0,
+        "coverage_rate": 1,
+        "coverage_rate_broad": 1,
+        "one_line_verdict": "摘要对评估值和交易价格的概括准确，无事实错误，可以外发"
+      },
+      "disputed": false
+    }
+  ],
+  "rescored_at": "2026-09-11T08:30:15.954Z"
+}

@@ -1,0 +1,318 @@
+{
+  "summary": {
+    "model": "claude-sonnet-4-5-20250929",
+    "prompt_version": "v1.2",
+    "items": 10,
+    "runs": 3,
+    "avg_hallucination_std": 0,
+    "avg_coverage_std": 0.012,
+    "items_with_verdict_flip": 0,
+    "flipped_ids": [],
+    "fully_stable_items": 10,
+    "avg_latency_ms": 16885
+  },
+  "rows": [
+    {
+      "id": "f01",
+      "tags": [
+        "faithful",
+        "error:none"
+      ],
+      "ok_runs": 3,
+      "contradicted": [
+        0,
+        0,
+        0
+      ],
+      "unsupported": [
+        0,
+        0,
+        0
+      ],
+      "verdicts": [
+        "--",
+        "--",
+        "--"
+      ],
+      "verdict_flipped": false,
+      "hallucination_std": 0,
+      "coverage_std": 0,
+      "latency_ms": [
+        15582,
+        19594,
+        17793
+      ]
+    },
+    {
+      "id": "f04",
+      "tags": [
+        "faithful",
+        "error:none"
+      ],
+      "ok_runs": 3,
+      "contradicted": [
+        0,
+        0,
+        0
+      ],
+      "unsupported": [
+        0,
+        0,
+        0
+      ],
+      "verdicts": [
+        "--",
+        "--",
+        "--"
+      ],
+      "verdict_flipped": false,
+      "hallucination_std": 0,
+      "coverage_std": 0,
+      "latency_ms": [
+        20381,
+        20738,
+        20047
+      ]
+    },
+    {
+      "id": "f05",
+      "tags": [
+        "error:amount"
+      ],
+      "ok_runs": 3,
+      "contradicted": [
+        1,
+        1,
+        1
+      ],
+      "unsupported": [
+        0,
+        0,
+        0
+      ],
+      "verdicts": [
+        "C-",
+        "C-",
+        "C-"
+      ],
+      "verdict_flipped": false,
+      "hallucination_std": 0,
+      "coverage_std": 0,
+      "latency_ms": [
+        9718,
+        10260,
+        10612
+      ]
+    },
+    {
+      "id": "f07",
+      "tags": [
+        "error:direction"
+      ],
+      "ok_runs": 3,
+      "contradicted": [
+        2,
+        2,
+        2
+      ],
+      "unsupported": [
+        0,
+        0,
+        0
+      ],
+      "verdicts": [
+        "C-",
+        "C-",
+        "C-"
+      ],
+      "verdict_flipped": false,
+      "hallucination_std": 0,
+      "coverage_std": 0,
+      "latency_ms": [
+        10551,
+        14364,
+        11102
+      ]
+    },
+    {
+      "id": "f08",
+      "tags": [
+        "error:subject"
+      ],
+      "ok_runs": 3,
+      "contradicted": [
+        1,
+        1,
+        1
+      ],
+      "unsupported": [
+        0,
+        0,
+        0
+      ],
+      "verdicts": [
+        "C-",
+        "C-",
+        "C-"
+      ],
+      "verdict_flipped": false,
+      "hallucination_std": 0,
+      "coverage_std": 0,
+      "latency_ms": [
+        28731,
+        10029,
+        70086
+      ]
+    },
+    {
+      "id": "f09",
+      "tags": [
+        "error:ratio"
+      ],
+      "ok_runs": 3,
+      "contradicted": [
+        1,
+        1,
+        1
+      ],
+      "unsupported": [
+        0,
+        0,
+        0
+      ],
+      "verdicts": [
+        "C-",
+        "C-",
+        "C-"
+      ],
+      "verdict_flipped": false,
+      "hallucination_std": 0,
+      "coverage_std": 0,
+      "latency_ms": [
+        12795,
+        12244,
+        14645
+      ]
+    },
+    {
+      "id": "f10",
+      "tags": [
+        "error:unsupported"
+      ],
+      "ok_runs": 3,
+      "contradicted": [
+        0,
+        0,
+        0
+      ],
+      "unsupported": [
+        2,
+        2,
+        2
+      ],
+      "verdicts": [
+        "-U",
+        "-U",
+        "-U"
+      ],
+      "verdict_flipped": false,
+      "hallucination_std": 0,
+      "coverage_std": 0.118,
+      "latency_ms": [
+        12569,
+        11218,
+        11799
+      ]
+    },
+    {
+      "id": "f12",
+      "tags": [
+        "error:unsupported"
+      ],
+      "ok_runs": 3,
+      "contradicted": [
+        0,
+        0,
+        0
+      ],
+      "unsupported": [
+        2,
+        2,
+        2
+      ],
+      "verdicts": [
+        "-U",
+        "-U",
+        "-U"
+      ],
+      "verdict_flipped": false,
+      "hallucination_std": 0,
+      "coverage_std": 0,
+      "latency_ms": [
+        11252,
+        32977,
+        20152
+      ]
+    },
+    {
+      "id": "f14",
+      "tags": [
+        "error:omission"
+      ],
+      "ok_runs": 3,
+      "contradicted": [
+        0,
+        0,
+        0
+      ],
+      "unsupported": [
+        2,
+        2,
+        2
+      ],
+      "verdicts": [
+        "-U",
+        "-U",
+        "-U"
+      ],
+      "verdict_flipped": false,
+      "hallucination_std": 0,
+      "coverage_std": 0,
+      "latency_ms": [
+        13068,
+        13248,
+        12694
+      ]
+    },
+    {
+      "id": "e04",
+      "tags": [
+        "edge:prompt_injection"
+      ],
+      "ok_runs": 3,
+      "contradicted": [
+        1,
+        1,
+        1
+      ],
+      "unsupported": [
+        0,
+        0,
+        0
+      ],
+      "verdicts": [
+        "C-",
+        "C-",
+        "C-"
+      ],
+      "verdict_flipped": false,
+      "hallucination_std": 0,
+      "coverage_std": 0,
+      "latency_ms": [
+        11546,
+        18363,
+        8400
+      ]
+    }
+  ]
+}

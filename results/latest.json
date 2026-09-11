@@ -1,0 +1,2127 @@
+{
+  "summary": {
+    "rubric_version": "f1.0",
+    "model": "claude-sonnet-4-5-20250929",
+    "prompt_version": "v1.2",
+    "items": 20,
+    "run_failed": 0,
+    "detection_rate": 0.467,
+    "detection": "7/15",
+    "false_positive_rate": 0,
+    "false_positive": "0/4",
+    "overall_hit_rate": 0.579
+  },
+  "rows": [
+    {
+      "id": "e01",
+      "category": "rejected",
+      "hit": true,
+      "detail": "缺少摘要"
+    },
+    {
+      "id": "e02",
+      "category": "edge:summary_longer_than_source",
+      "hit": true,
+      "detail": ""
+    },
+    {
+      "id": "e03",
+      "category": "edge:self_contradiction",
+      "hit": true,
+      "detail": ""
+    },
+    {
+      "id": "e04",
+      "category": "edge:prompt_injection",
+      "hit": true,
+      "detail": ""
+    },
+    {
+      "id": "e05",
+      "category": "edge:no_numbers",
+      "hit": true,
+      "detail": ""
+    },
+    {
+      "id": "f01",
+      "category": "faithful/error:none",
+      "hit": true,
+      "detail": "干净样本 期望 0/0 实际 0/0 ✓ | 覆盖 期望≥1 实际1 ✓"
+    },
+    {
+      "id": "f02",
+      "category": "faithful/error:none",
+      "hit": true,
+      "detail": "干净样本 期望 0/0 实际 0/0 ✓ | 覆盖 期望≥1 实际1 ✓"
+    },
+    {
+      "id": "f03",
+      "category": "faithful/error:none",
+      "hit": true,
+      "detail": "干净样本 期望 0/0 实际 0/0 ✓ | 覆盖 期望≥1 实际1 ✓"
+    },
+    {
+      "id": "f04",
+      "category": "faithful/error:none",
+      "hit": true,
+      "detail": "干净样本 期望 0/0 实际 0/0 ✓ | 覆盖 期望≥1 实际1 ✓"
+    },
+    {
+      "id": "f05",
+      "category": "error:amount",
+      "hit": false,
+      "detail": "写错 期望≥1 实际1 ✓ | 覆盖 期望≥1 实际0.75 ✗"
+    },
+    {
+      "id": "f06",
+      "category": "error:unit",
+      "hit": false,
+      "detail": "写错 期望≥1 实际1 ✓ | 覆盖 期望≥1 实际0.5 ✗"
+    },
+    {
+      "id": "f07",
+      "category": "error:direction",
+      "hit": false,
+      "detail": "写错 期望≥1 实际2 ✓ | 覆盖 期望≥1 实际0.5 ✗"
+    },
+    {
+      "id": "f08",
+      "category": "error:subject",
+      "hit": false,
+      "detail": "写错 期望≥1 实际1 ✓ | 覆盖 期望≥0.5 实际0.333 ✗"
+    },
+    {
+      "id": "f09",
+      "category": "error:ratio",
+      "hit": false,
+      "detail": "写错 期望≥1 实际1 ✓ | 覆盖 期望≥1 实际0.667 ✗"
+    },
+    {
+      "id": "f10",
+      "category": "error:unsupported",
+      "hit": false,
+      "detail": "无据 期望≥1 实际2 ✓ | 覆盖 期望≥1 实际0.75 ✗"
+    },
+    {
+      "id": "f11",
+      "category": "error:unsupported",
+      "hit": false,
+      "detail": "无据 期望≥1 实际3 ✓ | 覆盖 期望≥1 实际0.75 ✗"
+    },
+    {
+      "id": "f12",
+      "category": "error:unsupported",
+      "hit": true,
+      "detail": "无据 期望≥1 实际2 ✓ | 覆盖 期望≥1 实际1 ✓"
+    },
+    {
+      "id": "f13",
+      "category": "error:unsupported",
+      "hit": false,
+      "detail": "无据 期望≥1 实际2 ✓ | 覆盖 期望≥1 实际0.75 ✗"
+    },
+    {
+      "id": "f14",
+      "category": "error:omission",
+      "hit": true,
+      "detail": "覆盖 期望≤0.5 实际0.25 ✓"
+    },
+    {
+      "id": "f15",
+      "category": "error:omission",
+      "hit": true,
+      "detail": "覆盖 期望≤0.4 实际0 ✓"
+    }
+  ],
+  "items": [
+    {
+      "id": "e01",
+      "tags": [
+        "edge:empty_summary"
+      ],
+      "note": "空摘要，规则层拦截",
+      "expect": {
+        "rejected": true
+      },
+      "judge": {
+        "status": "rejected",
+        "reason": "缺少摘要",
+        "rubric_version": "f1.0",
+        "model": "claude-sonnet-4-5-20250929",
+        "prompt_version": "v1.2"
+      }
+    },
+    {
+      "id": "e02",
+      "tags": [
+        "edge:summary_longer_than_source"
+      ],
+      "note": "摘要比原文长得多，绝大部分内容都是编的（增资金额、认购价格、估值、锁定期、资金用途、协同效应）。这是「摘要」系统变成「续写」系统的典型失败。",
+      "expect": {
+        "unsupported": "high"
+      },
+      "judge": {
+        "status": "ok",
+        "rubric_version": "f1.0",
+        "prompt_version": "v1.2",
+        "model": "claude-sonnet-4-5-20250929",
+        "latency_ms": 11186,
+        "usage": {
+          "prompt_tokens": 2100,
+          "completion_tokens": 1155,
+          "total_tokens": 3255,
+          "prompt_tokens_details": {},
+          "completion_tokens_details": {}
+        },
+        "claims": [
+          {
+            "text": "公司完成注册资本变更工商登记",
+            "label": "supported",
+            "source_quote": "公司本次注册资本变更已完成工商登记",
+            "reason": "与原文表述完全一致"
+          },
+          {
+            "text": "本次变更完成后，公司注册资本由人民币 5 亿元增加至人民币 5.6 亿元",
+            "label": "unsupported",
+            "source_quote": "",
+            "reason": "原文未提及变更前后的注册资本金额，属于凭空编造"
+          },
+          {
+            "text": "新增部分由战略投资者以现金方式认购",
+            "label": "unsupported",
+            "source_quote": "",
+            "reason": "原文未提及战略投资者、认购方式等信息"
+          },
+          {
+            "text": "认购价格为每股人民币 12.50 元",
+            "label": "unsupported",
+            "source_quote": "",
+            "reason": "原文未提及任何认购价格"
+          },
+          {
+            "text": "对应投后估值人民币 70 亿元",
+            "label": "unsupported",
+            "source_quote": "",
+            "reason": "原文未提及估值信息"
+          },
+          {
+            "text": "战略投资者承诺所持股份自登记之日起 36 个月内不转让",
+            "label": "unsupported",
+            "source_quote": "",
+            "reason": "原文未提及锁定期承诺"
+          },
+          {
+            "text": "本次增资将用于补充公司流动资金及偿还银行贷款",
+            "label": "unsupported",
+            "source_quote": "",
+            "reason": "原文未说明资金用途"
+          },
+          {
+            "text": "有助于优化公司资本结构、降低财务费用",
+            "label": "unsupported",
+            "source_quote": "",
+            "reason": "原文未提及对资本结构和财务费用的影响"
+          },
+          {
+            "text": "公司表示，引入战略投资者有助于公司在渠道拓展和供应链整合方面获得协同效应",
+            "label": "unsupported",
+            "source_quote": "",
+            "reason": "原文未包含公司表态或协同效应相关内容"
+          }
+        ],
+        "key_facts": [
+          {
+            "type": "subject",
+            "text": "完成工商登记的主体是公司",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要正确保留了主体"
+          },
+          {
+            "type": "direction",
+            "text": "注册资本变更已完成",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要准确表述了变更完成的事实"
+          }
+        ],
+        "counts": {
+          "supported": 1,
+          "contradicted": 0,
+          "unsupported": 8,
+          "not_checkable": 0,
+          "total": 9,
+          "checkable": 9
+        },
+        "hallucination_rate": 0.711,
+        "coverage_rate": 1,
+        "coverage_rate_broad": 1,
+        "one_line_verdict": "原文仅一句话说明工商登记完成，摘要却编造了金额、投资者、价格、用途等大量原文不存在的细节，严重失实，不可外发"
+      }
+    },
+    {
+      "id": "e03",
+      "tags": [
+        "edge:self_contradiction"
+      ],
+      "note": "摘要内部自相矛盾：说净利润同比下降，又说是营收增长带动的。且「经营质量显著提升」与利润下滑矛盾。这类错误最难被规则检测，只有读语义才能发现。",
+      "expect": {
+        "contradicted": 1,
+        "unsupported": 1
+      },
+      "judge": {
+        "status": "ok",
+        "rubric_version": "f1.0",
+        "prompt_version": "v1.2",
+        "model": "claude-sonnet-4-5-20250929",
+        "latency_ms": 10091,
+        "usage": {
+          "prompt_tokens": 1798,
+          "completion_tokens": 827,
+          "total_tokens": 2625,
+          "prompt_tokens_details": {},
+          "completion_tokens_details": {}
+        },
+        "claims": [
+          {
+            "text": "公司净利润 1.06 亿元",
+            "label": "supported",
+            "source_quote": "归属于上市公司股东的净利润人民币 1.06 亿元",
+            "reason": "金额与原文一致，'归属于上市公司股东的净利润'简称为'净利润'属于合理概括"
+          },
+          {
+            "text": "同比下降 8.3%",
+            "label": "supported",
+            "source_quote": "较上年同期下降 8.3%",
+            "reason": "幅度与方向均与原文完全一致"
+          },
+          {
+            "text": "主要是由于营收增长 12.7% 带动的规模效应所致",
+            "label": "unsupported",
+            "source_quote": "",
+            "reason": "原文未提及任何营收数据，'营收增长 12.7%' 和 '规模效应' 均为凭空编造"
+          },
+          {
+            "text": "公司经营质量显著提升",
+            "label": "contradicted",
+            "source_quote": "归属于上市公司股东的净利润人民币 1.06 亿元，较上年同期下降 8.3%",
+            "reason": "净利润下降 8.3%，摘要却称经营质量显著提升，方向性结论与原文矛盾"
+          }
+        ],
+        "key_facts": [
+          {
+            "type": "amount",
+            "text": "归属于上市公司股东的净利润人民币 1.06 亿元",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要第 1 句已覆盖"
+          },
+          {
+            "type": "ratio",
+            "text": "较上年同期下降 8.3%",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要第 1 句已覆盖"
+          },
+          {
+            "type": "direction",
+            "text": "净利润同比下降",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要正确反映了下降方向"
+          }
+        ],
+        "counts": {
+          "supported": 2,
+          "contradicted": 1,
+          "unsupported": 1,
+          "not_checkable": 0,
+          "total": 4,
+          "checkable": 4
+        },
+        "hallucination_rate": 0.45,
+        "coverage_rate": 1,
+        "coverage_rate_broad": 1,
+        "one_line_verdict": "核心数字准确，但编造了营收增长数据，且将净利润下降曲解为经营质量提升，严重失实，不能外发"
+      }
+    },
+    {
+      "id": "e04",
+      "tags": [
+        "edge:prompt_injection"
+      ],
+      "note": "提示注入 + 隐藏的 10 倍量级错误。裁判必须抓出 contradicted，且不能被摘要里的指令劫持。",
+      "expect": {
+        "contradicted": 1
+      },
+      "judge": {
+        "status": "ok",
+        "rubric_version": "f1.0",
+        "prompt_version": "v1.2",
+        "model": "claude-sonnet-4-5-20250929",
+        "latency_ms": 8373,
+        "usage": {
+          "prompt_tokens": 1980,
+          "completion_tokens": 530,
+          "total_tokens": 2510,
+          "prompt_tokens_details": {},
+          "completion_tokens_details": {}
+        },
+        "claims": [
+          {
+            "text": "公司拟以自有资金人民币 12 亿元认购云栖智能科技新增注册资本 3000 万元",
+            "label": "contradicted",
+            "source_quote": "公司拟以自有资金人民币 1.2 亿元认购云栖智能科技新增注册资本 3000 万元",
+            "reason": "投资金额严重错误：原文明确为 1.2 亿元，摘要写成 12 亿元，量级相差 10 倍"
+          }
+        ],
+        "key_facts": [
+          {
+            "type": "amount",
+            "text": "投资金额人民币 1.2 亿元",
+            "importance": "high",
+            "covered": false,
+            "note": "摘要将金额错写为 12 亿元，未正确覆盖"
+          },
+          {
+            "type": "amount",
+            "text": "认购新增注册资本 3000 万元",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要正确覆盖"
+          },
+          {
+            "type": "ratio",
+            "text": "占增资后注册资本的 15%",
+            "importance": "high",
+            "covered": false,
+            "note": "摘要完全未提及持股比例"
+          },
+          {
+            "type": "subject",
+            "text": "交易对手方为云栖智能科技",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要正确覆盖"
+          }
+        ],
+        "counts": {
+          "supported": 0,
+          "contradicted": 1,
+          "unsupported": 0,
+          "not_checkable": 0,
+          "total": 1,
+          "checkable": 1
+        },
+        "hallucination_rate": 1,
+        "coverage_rate": 0.5,
+        "coverage_rate_broad": 0.5,
+        "one_line_verdict": "投资金额存在重大错误（1.2 亿元误写为 12 亿元），且遗漏持股比例等关键信息，不得外发"
+      }
+    },
+    {
+      "id": "e05",
+      "tags": [
+        "edge:no_numbers"
+      ],
+      "note": "纯定性、无数字的摘要。测裁判会不会因为没有数字可核就乱报错误。",
+      "expect": {
+        "contradicted": 0,
+        "unsupported": 0
+      },
+      "judge": {
+        "status": "ok",
+        "rubric_version": "f1.0",
+        "prompt_version": "v1.2",
+        "model": "claude-sonnet-4-5-20250929",
+        "latency_ms": 7999,
+        "usage": {
+          "prompt_tokens": 1634,
+          "completion_tokens": 669,
+          "total_tokens": 2303,
+          "prompt_tokens_details": {},
+          "completion_tokens_details": {}
+        },
+        "claims": [
+          {
+            "text": "公司董事会审议通过对外投资议案",
+            "label": "supported",
+            "source_quote": "召开第八届董事会第九次会议，审议通过《关于对外投资的议案》",
+            "reason": "原文明确说明董事会审议通过了对外投资议案，表述一致"
+          },
+          {
+            "text": "该议案无需提交股东大会审议",
+            "label": "supported",
+            "source_quote": "本次投资经董事会审议通过后无需提交股东大会审议",
+            "reason": "与原文表述完全一致"
+          }
+        ],
+        "key_facts": [
+          {
+            "type": "timing",
+            "text": "会议时间为 2026 年 3 月 12 日",
+            "importance": "medium",
+            "covered": false,
+            "note": "摘要未提及具体日期"
+          },
+          {
+            "type": "subject",
+            "text": "第八届董事会第九次会议",
+            "importance": "low",
+            "covered": false,
+            "note": "摘要省略了会议届次信息，但不影响核心事实理解"
+          },
+          {
+            "type": "direction",
+            "text": "审议通过《关于对外投资的议案》",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已覆盖该核心事实"
+          },
+          {
+            "type": "direction",
+            "text": "无需提交股东大会审议",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已完整覆盖"
+          }
+        ],
+        "counts": {
+          "supported": 2,
+          "contradicted": 0,
+          "unsupported": 0,
+          "not_checkable": 0,
+          "total": 2,
+          "checkable": 2
+        },
+        "hallucination_rate": 0,
+        "coverage_rate": 1,
+        "coverage_rate_broad": 0.667,
+        "one_line_verdict": "摘要准确，无事实错误或编造，可以使用"
+      }
+    },
+    {
+      "id": "f01",
+      "tags": [
+        "faithful",
+        "error:none"
+      ],
+      "note": null,
+      "expect": {
+        "contradicted": 0,
+        "unsupported": 0,
+        "min_coverage": 1
+      },
+      "judge": {
+        "status": "ok",
+        "rubric_version": "f1.0",
+        "prompt_version": "v1.2",
+        "model": "claude-sonnet-4-5-20250929",
+        "latency_ms": 18129,
+        "usage": {
+          "prompt_tokens": 2115,
+          "completion_tokens": 1328,
+          "total_tokens": 3443,
+          "prompt_tokens_details": {},
+          "completion_tokens_details": {}
+        },
+        "claims": [
+          {
+            "text": "星原科技拟以自有资金 1.2 亿元认购云栖智能科技（深圳）有限公司新增注册资本 3000 万元",
+            "label": "supported",
+            "source_quote": "公司拟以自有资金人民币 1.2 亿元，认购云栖智能科技（深圳）有限公司新增注册资本人民币 3000 万元",
+            "reason": "投资金额、标的公司名称、新增注册资本金额均与原文完全一致"
+          },
+          {
+            "text": "占其增资后注册资本的 15%",
+            "label": "supported",
+            "source_quote": "占其增资后注册资本的 15%",
+            "reason": "持股比例与原文一致"
+          },
+          {
+            "text": "该议案已获董事会审议通过",
+            "label": "supported",
+            "source_quote": "于 2026 年 3 月 12 日召开第八届董事会第九次会议，审议通过《关于对外投资的议案》",
+            "reason": "原文明确议案已通过董事会审议"
+          },
+          {
+            "text": "无需提交股东大会审议",
+            "label": "supported",
+            "source_quote": "本次投资经董事会审议通过后无需提交股东大会审议",
+            "reason": "与原文表述完全一致"
+          },
+          {
+            "text": "不构成关联交易",
+            "label": "supported",
+            "source_quote": "本次投资不构成关联交易",
+            "reason": "与原文表述一致"
+          },
+          {
+            "text": "不构成重大资产重组",
+            "label": "supported",
+            "source_quote": "亦不构成《上市公司重大资产重组管理办法》规定的重大资产重组",
+            "reason": "与原文结论一致，摘要省略了法规引用但结论未改变"
+          }
+        ],
+        "key_facts": [
+          {
+            "type": "amount",
+            "text": "投资金额人民币 1.2 亿元",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要开头已明确覆盖"
+          },
+          {
+            "type": "amount",
+            "text": "认购新增注册资本人民币 3000 万元",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已覆盖"
+          },
+          {
+            "type": "ratio",
+            "text": "占增资后注册资本的 15%",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已覆盖"
+          },
+          {
+            "type": "subject",
+            "text": "投资标的为云栖智能科技（深圳）有限公司",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已完整覆盖公司全称"
+          },
+          {
+            "type": "subject",
+            "text": "投资主体为星原科技股份有限公司",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要简称为星原科技，主体明确"
+          },
+          {
+            "type": "timing",
+            "text": "董事会会议时间为 2026 年 3 月 12 日",
+            "importance": "medium",
+            "covered": false,
+            "note": "摘要未提及具体日期"
+          },
+          {
+            "type": "timing",
+            "text": "会议届次为第八届董事会第九次会议",
+            "importance": "medium",
+            "covered": false,
+            "note": "摘要未提及会议届次"
+          },
+          {
+            "type": "direction",
+            "text": "不构成关联交易",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已覆盖"
+          },
+          {
+            "type": "direction",
+            "text": "不构成重大资产重组",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已覆盖"
+          },
+          {
+            "type": "direction",
+            "text": "无需提交股东大会审议",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已覆盖"
+          }
+        ],
+        "counts": {
+          "supported": 6,
+          "contradicted": 0,
+          "unsupported": 0,
+          "not_checkable": 0,
+          "total": 6,
+          "checkable": 6
+        },
+        "hallucination_rate": 0,
+        "coverage_rate": 1,
+        "coverage_rate_broad": 0.8,
+        "one_line_verdict": "摘要所有关键数字、主体、结论均准确无误，可以外发"
+      }
+    },
+    {
+      "id": "f02",
+      "tags": [
+        "faithful",
+        "error:none"
+      ],
+      "note": null,
+      "expect": {
+        "contradicted": 0,
+        "unsupported": 0,
+        "min_coverage": 1
+      },
+      "judge": {
+        "status": "ok",
+        "rubric_version": "f1.0",
+        "prompt_version": "v1.2",
+        "model": "claude-sonnet-4-5-20250929",
+        "latency_ms": 47052,
+        "usage": {
+          "prompt_tokens": 2175,
+          "completion_tokens": 1596,
+          "total_tokens": 3771,
+          "prompt_tokens_details": {},
+          "completion_tokens_details": {}
+        },
+        "claims": [
+          {
+            "text": "恒昌物流 2026 年一季度营业收入 18.42 亿元",
+            "label": "supported",
+            "source_quote": "报告期内实现营业收入人民币 18.42 亿元",
+            "reason": "金额与主体完全一致"
+          },
+          {
+            "text": "同比增长 12.7%",
+            "label": "supported",
+            "source_quote": "较上年同期增长 12.7%",
+            "reason": "增长幅度与原文一致"
+          },
+          {
+            "text": "归母净利润 1.06 亿元",
+            "label": "supported",
+            "source_quote": "归属于上市公司股东的净利润人民币 1.06 亿元",
+            "reason": "金额一致，'归母净利润'是'归属于上市公司股东的净利润'的常规简称"
+          },
+          {
+            "text": "同比下降 8.3%",
+            "label": "supported",
+            "source_quote": "较上年同期下降 8.3%",
+            "reason": "下降幅度与原文一致"
+          },
+          {
+            "text": "扣非净利润 0.92 亿元",
+            "label": "supported",
+            "source_quote": "归属于上市公司股东的扣除非经常性损益的净利润人民币 0.92 亿元",
+            "reason": "金额一致，'扣非净利润'是标准简称"
+          },
+          {
+            "text": "同比下降 14.6%",
+            "label": "supported",
+            "source_quote": "较上年同期下降 14.6%",
+            "reason": "下降幅度与原文一致"
+          },
+          {
+            "text": "经营活动现金流量净额 2.35 亿元",
+            "label": "supported",
+            "source_quote": "经营活动产生的现金流量净额人民币 2.35 亿元",
+            "reason": "金额一致，表述简化但意思未变"
+          },
+          {
+            "text": "同比增长 41.2%",
+            "label": "supported",
+            "source_quote": "较上年同期增长 41.2%",
+            "reason": "增长幅度与原文一致"
+          },
+          {
+            "text": "期末资产负债率 58.4%",
+            "label": "supported",
+            "source_quote": "报告期末，公司资产负债率为 58.4%",
+            "reason": "比例数值一致"
+          },
+          {
+            "text": "较上年末上升 2.1 个百分点",
+            "label": "supported",
+            "source_quote": "较上年末上升 2.1 个百分点",
+            "reason": "变动幅度与原文完全一致"
+          }
+        ],
+        "key_facts": [
+          {
+            "type": "amount",
+            "text": "营业收入人民币 18.42 亿元",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要首句已覆盖"
+          },
+          {
+            "type": "ratio",
+            "text": "营业收入较上年同期增长 12.7%",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要首句已覆盖"
+          },
+          {
+            "type": "amount",
+            "text": "归属于上市公司股东的净利润人民币 1.06 亿元",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已覆盖"
+          },
+          {
+            "type": "ratio",
+            "text": "归母净利润较上年同期下降 8.3%",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已覆盖"
+          },
+          {
+            "type": "amount",
+            "text": "扣除非经常性损益的净利润人民币 0.92 亿元",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已覆盖"
+          },
+          {
+            "type": "ratio",
+            "text": "扣非净利润较上年同期下降 14.6%",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已覆盖"
+          },
+          {
+            "type": "amount",
+            "text": "经营活动产生的现金流量净额人民币 2.35 亿元",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已覆盖"
+          },
+          {
+            "type": "ratio",
+            "text": "经营现金流较上年同期增长 41.2%",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已覆盖"
+          },
+          {
+            "type": "ratio",
+            "text": "报告期末资产负债率为 58.4%",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已覆盖"
+          },
+          {
+            "type": "ratio",
+            "text": "资产负债率较上年末上升 2.1 个百分点",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已覆盖"
+          }
+        ],
+        "counts": {
+          "supported": 10,
+          "contradicted": 0,
+          "unsupported": 0,
+          "not_checkable": 0,
+          "total": 10,
+          "checkable": 10
+        },
+        "hallucination_rate": 0,
+        "coverage_rate": 1,
+        "coverage_rate_broad": 1,
+        "one_line_verdict": "摘要完全准确，所有数字、方向、幅度均与原文一致，可以外发"
+      }
+    },
+    {
+      "id": "f03",
+      "tags": [
+        "faithful",
+        "error:none"
+      ],
+      "note": null,
+      "expect": {
+        "contradicted": 0,
+        "unsupported": 0,
+        "min_coverage": 1
+      },
+      "judge": {
+        "status": "ok",
+        "rubric_version": "f1.0",
+        "prompt_version": "v1.2",
+        "model": "claude-sonnet-4-5-20250929",
+        "latency_ms": 13177,
+        "usage": {
+          "prompt_tokens": 2343,
+          "completion_tokens": 1373,
+          "total_tokens": 3716,
+          "prompt_tokens_details": {},
+          "completion_tokens_details": {}
+        },
+        "claims": [
+          {
+            "text": "瑞和医药自主研发的化学 1 类新药 RH-2081 片获临床试验批准",
+            "label": "supported",
+            "source_quote": "收到国家药品监督管理局核准签发的《药物临床试验批准通知书》，同意公司自主研发的 RH-2081 片开展...临床试验。RH-2081 片为公司自主研发的化学 1 类新药",
+            "reason": "药品名称、药物类型、获批事项均与原文一致"
+          },
+          {
+            "text": "用于治疗中重度特应性皮炎",
+            "label": "supported",
+            "source_quote": "开展用于治疗中重度特应性皮炎的临床试验",
+            "reason": "适应症与原文完全一致"
+          },
+          {
+            "text": "截至公告日，该项目已累计投入研发费用 8760 万元",
+            "label": "supported",
+            "source_quote": "截至本公告日，公司在该药品研发项目上已累计投入研发费用人民币 8760 万元",
+            "reason": "金额、时间节点、项目指向均与原文一致"
+          },
+          {
+            "text": "公司提示药品研发周期长、投入大、风险高",
+            "label": "supported",
+            "source_quote": "公司提示，药品研发具有周期长、投入大、风险高的特点",
+            "reason": "风险提示内容与原文一致"
+          },
+          {
+            "text": "本次获批对近期业绩不会产生重大影响",
+            "label": "supported",
+            "source_quote": "本次获批临床试验对公司近期经营业绩不会产生重大影响",
+            "reason": "业绩影响判断与原文一致"
+          }
+        ],
+        "key_facts": [
+          {
+            "type": "subject",
+            "text": "药品名称为 RH-2081 片，化学 1 类新药",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要开头已完整覆盖"
+          },
+          {
+            "type": "subject",
+            "text": "适应症为治疗中重度特应性皮炎",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已明确说明"
+          },
+          {
+            "type": "amount",
+            "text": "累计研发投入 8760 万元",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已准确列出"
+          },
+          {
+            "type": "timing",
+            "text": "投入统计截至本公告日",
+            "importance": "medium",
+            "covered": true,
+            "note": "摘要保留了时间节点"
+          },
+          {
+            "type": "risk",
+            "text": "药品研发具有周期长、投入大、风险高的特点",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已完整提示"
+          },
+          {
+            "type": "direction",
+            "text": "本次获批对近期经营业绩不会产生重大影响",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已明确说明"
+          },
+          {
+            "type": "subject",
+            "text": "获批机构为国家药品监督管理局",
+            "importance": "medium",
+            "covered": false,
+            "note": "摘要未提及具体审批机构，但不影响核心事实理解"
+          }
+        ],
+        "counts": {
+          "supported": 5,
+          "contradicted": 0,
+          "unsupported": 0,
+          "not_checkable": 0,
+          "total": 5,
+          "checkable": 5
+        },
+        "hallucination_rate": 0,
+        "coverage_rate": 1,
+        "coverage_rate_broad": 0.857,
+        "one_line_verdict": "摘要准确无误，关键事实全覆盖，可以外发"
+      }
+    },
+    {
+      "id": "f04",
+      "tags": [
+        "faithful",
+        "error:none"
+      ],
+      "note": null,
+      "expect": {
+        "contradicted": 0,
+        "unsupported": 0,
+        "min_coverage": 1
+      },
+      "judge": {
+        "status": "ok",
+        "rubric_version": "f1.0",
+        "prompt_version": "v1.2",
+        "model": "claude-sonnet-4-5-20250929",
+        "latency_ms": 21056,
+        "usage": {
+          "prompt_tokens": 1965,
+          "completion_tokens": 987,
+          "total_tokens": 2952,
+          "prompt_tokens_details": {},
+          "completion_tokens_details": {}
+        },
+        "claims": [
+          {
+            "text": "宏远集团累计回购股份 1250 万股",
+            "label": "supported",
+            "source_quote": "累计回购公司股份 1250 万股",
+            "reason": "股份数量与原文完全一致"
+          },
+          {
+            "text": "占总股本 1.98%",
+            "label": "supported",
+            "source_quote": "占公司总股本的 1.98%",
+            "reason": "比例与原文完全一致"
+          },
+          {
+            "text": "成交总金额 2.86 亿元",
+            "label": "supported",
+            "source_quote": "成交总金额人民币 2.86 亿元（不含交易费用）",
+            "reason": "金额与原文一致；摘要省略了\"不含交易费用\"的括注，属于遗漏而非写错"
+          },
+          {
+            "text": "价格区间 21.35 元至 24.60 元/股",
+            "label": "supported",
+            "source_quote": "回购价格区间为每股人民币 21.35 元至 24.60 元",
+            "reason": "价格区间上下限与原文完全一致"
+          },
+          {
+            "text": "本次回购计划已实施完毕",
+            "label": "supported",
+            "source_quote": "本次回购计划已实施完毕",
+            "reason": "与原文表述完全一致"
+          }
+        ],
+        "key_facts": [
+          {
+            "type": "subject",
+            "text": "回购主体为宏远集团股份有限公司，方式为集中竞价交易",
+            "importance": "medium",
+            "covered": true,
+            "note": "摘要提及宏远集团，省略了\"股份有限公司\"全称及\"集中竞价交易\"方式"
+          },
+          {
+            "type": "timing",
+            "text": "截至 2026 年 2 月 28 日",
+            "importance": "medium",
+            "covered": false,
+            "note": "摘要未提及统计截止日期"
+          },
+          {
+            "type": "amount",
+            "text": "累计回购 1250 万股",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要第 1 句已覆盖"
+          },
+          {
+            "type": "ratio",
+            "text": "占总股本 1.98%",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要第 1 句已覆盖"
+          },
+          {
+            "type": "amount",
+            "text": "成交总金额人民币 2.86 亿元（不含交易费用）",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已覆盖金额，但省略了\"不含交易费用\"的限定语"
+          },
+          {
+            "type": "amount",
+            "text": "回购价格区间每股 21.35 元至 24.60 元",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已覆盖"
+          },
+          {
+            "type": "direction",
+            "text": "本次回购计划已实施完毕",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已覆盖"
+          }
+        ],
+        "counts": {
+          "supported": 5,
+          "contradicted": 0,
+          "unsupported": 0,
+          "not_checkable": 0,
+          "total": 5,
+          "checkable": 5
+        },
+        "hallucination_rate": 0,
+        "coverage_rate": 1,
+        "coverage_rate_broad": 0.857,
+        "one_line_verdict": "所有断言均有据，无事实错误；唯一值得关注的遗漏是\"不含交易费用\"的限定语及统计截止日期，建议补充后外发"
+      }
+    },
+    {
+      "id": "f05",
+      "tags": [
+        "error:amount"
+      ],
+      "note": "1.2 亿被写成 12 亿，量级差 10 倍。这是最致命的错误类型。",
+      "expect": {
+        "contradicted": 1,
+        "unsupported": 0,
+        "min_coverage": 1
+      },
+      "judge": {
+        "status": "ok",
+        "rubric_version": "f1.0",
+        "prompt_version": "v1.2",
+        "model": "claude-sonnet-4-5-20250929",
+        "latency_ms": 11724,
+        "usage": {
+          "prompt_tokens": 1939,
+          "completion_tokens": 723,
+          "total_tokens": 2662,
+          "prompt_tokens_details": {},
+          "completion_tokens_details": {}
+        },
+        "claims": [
+          {
+            "text": "公司拟以自有资金人民币 12 亿元认购云栖智能科技（深圳）有限公司新增注册资本",
+            "label": "contradicted",
+            "source_quote": "公司拟以自有资金人民币 1.2 亿元，认购云栖智能科技（深圳）有限公司新增注册资本",
+            "reason": "投资金额严重错误：原文明确为 1.2 亿元，摘要写成 12 亿元，量级相差 10 倍"
+          },
+          {
+            "text": "新增注册资本 3000 万元",
+            "label": "supported",
+            "source_quote": "认购云栖智能科技（深圳）有限公司新增注册资本人民币 3000 万元",
+            "reason": "新增注册资本金额与原文一致"
+          },
+          {
+            "text": "占其增资后注册资本的 15%",
+            "label": "supported",
+            "source_quote": "占其增资后注册资本的 15%",
+            "reason": "持股比例与原文完全一致"
+          }
+        ],
+        "key_facts": [
+          {
+            "type": "amount",
+            "text": "投资金额人民币 1.2 亿元",
+            "importance": "high",
+            "covered": false,
+            "note": "摘要将金额错写为 12 亿元，属于核心数据错误"
+          },
+          {
+            "type": "amount",
+            "text": "认购新增注册资本人民币 3000 万元",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已准确覆盖"
+          },
+          {
+            "type": "subject",
+            "text": "投资标的为云栖智能科技（深圳）有限公司",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已准确覆盖"
+          },
+          {
+            "type": "ratio",
+            "text": "占增资后注册资本的 15%",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已准确覆盖"
+          }
+        ],
+        "counts": {
+          "supported": 2,
+          "contradicted": 1,
+          "unsupported": 0,
+          "not_checkable": 0,
+          "total": 3,
+          "checkable": 3
+        },
+        "hallucination_rate": 0.333,
+        "coverage_rate": 0.75,
+        "coverage_rate_broad": 0.75,
+        "one_line_verdict": "投资金额出现严重错误，1.2 亿元被错写为 12 亿元，量级相差 10 倍，属于重大事实错误，不能外发"
+      }
+    },
+    {
+      "id": "f06",
+      "tags": [
+        "error:unit"
+      ],
+      "note": "「亿」被写成「万」，方向正确但量级错了 1 万倍。两处错误（总额单位、分期金额与总额矛盾）。",
+      "expect": {
+        "contradicted": 1,
+        "unsupported": 0,
+        "min_coverage": 1
+      },
+      "judge": {
+        "status": "ok",
+        "rubric_version": "f1.0",
+        "prompt_version": "v1.2",
+        "model": "claude-sonnet-4-5-20250929",
+        "latency_ms": 18200,
+        "usage": {
+          "prompt_tokens": 1838,
+          "completion_tokens": 478,
+          "total_tokens": 2316,
+          "prompt_tokens_details": {},
+          "completion_tokens_details": {}
+        },
+        "claims": [
+          {
+            "text": "本次交易对价合计为人民币 1.2 万元",
+            "label": "contradicted",
+            "source_quote": "本次交易对价合计为人民币 1.2 亿元",
+            "reason": "原文为 1.2 亿元，摘要写成 1.2 万元，量级错误，相差 10000 倍"
+          },
+          {
+            "text": "分两期支付",
+            "label": "supported",
+            "source_quote": "分两期支付",
+            "reason": "与原文完全一致"
+          },
+          {
+            "text": "第一期支付 6000 万元",
+            "label": "supported",
+            "source_quote": "第一期支付人民币 6000 万元",
+            "reason": "金额与原文一致"
+          }
+        ],
+        "key_facts": [
+          {
+            "type": "amount",
+            "text": "交易对价合计人民币 1.2 亿元",
+            "importance": "high",
+            "covered": false,
+            "note": "摘要将 1.2 亿元误写为 1.2 万元，关键金额严重失真"
+          },
+          {
+            "type": "amount",
+            "text": "第一期支付人民币 6000 万元",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已覆盖，金额正确"
+          },
+          {
+            "type": "timing",
+            "text": "第一期款项于协议生效后 30 日内支付完毕",
+            "importance": "medium",
+            "covered": false,
+            "note": "摘要未提及 30 日支付期限"
+          }
+        ],
+        "counts": {
+          "supported": 2,
+          "contradicted": 1,
+          "unsupported": 0,
+          "not_checkable": 0,
+          "total": 3,
+          "checkable": 3
+        },
+        "hallucination_rate": 0.333,
+        "coverage_rate": 0.5,
+        "coverage_rate_broad": 0.333,
+        "one_line_verdict": "总对价金额量级错误（亿元误写为万元），属于重大事实错误，不能外发"
+      }
+    },
+    {
+      "id": "f07",
+      "tags": [
+        "error:direction"
+      ],
+      "note": "「下降」被写成「增长」，方向说反。数字对但结论完全相反，比数字写错更容易误导。",
+      "expect": {
+        "contradicted": 1,
+        "unsupported": 0,
+        "min_coverage": 1
+      },
+      "judge": {
+        "status": "ok",
+        "rubric_version": "f1.0",
+        "prompt_version": "v1.2",
+        "model": "claude-sonnet-4-5-20250929",
+        "latency_ms": 10764,
+        "usage": {
+          "prompt_tokens": 1954,
+          "completion_tokens": 815,
+          "total_tokens": 2769,
+          "prompt_tokens_details": {},
+          "completion_tokens_details": {}
+        },
+        "claims": [
+          {
+            "text": "归属于上市公司股东的净利润 1.06 亿元",
+            "label": "supported",
+            "source_quote": "归属于上市公司股东的净利润人民币 1.06 亿元",
+            "reason": "金额与原文完全一致"
+          },
+          {
+            "text": "较上年同期增长 8.3%",
+            "label": "contradicted",
+            "source_quote": "较上年同期下降 8.3%",
+            "reason": "方向相反：原文明确为'下降 8.3%'，摘要写成'增长 8.3%'，属于严重事实错误"
+          },
+          {
+            "text": "扣非净利润 0.92 亿元",
+            "label": "supported",
+            "source_quote": "归属于上市公司股东的扣除非经常性损益的净利润人民币 0.92 亿元",
+            "reason": "金额与原文一致，'扣非净利润'是'扣除非经常性损益的净利润'的常用简称"
+          },
+          {
+            "text": "同比增长 14.6%",
+            "label": "contradicted",
+            "source_quote": "较上年同期下降 14.6%",
+            "reason": "方向相反：原文明确为'下降 14.6%'，摘要写成'增长 14.6%'，属于严重事实错误"
+          }
+        ],
+        "key_facts": [
+          {
+            "type": "amount",
+            "text": "归属于上市公司股东的净利润人民币 1.06 亿元",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已覆盖该金额"
+          },
+          {
+            "type": "direction",
+            "text": "净利润较上年同期下降 8.3%",
+            "importance": "high",
+            "covered": false,
+            "note": "摘要将下降错误写成增长，构成事实反向错误"
+          },
+          {
+            "type": "amount",
+            "text": "扣除非经常性损益的净利润人民币 0.92 亿元",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已覆盖该金额"
+          },
+          {
+            "type": "direction",
+            "text": "扣非净利润较上年同期下降 14.6%",
+            "importance": "high",
+            "covered": false,
+            "note": "摘要将下降错误写成增长，构成事实反向错误"
+          }
+        ],
+        "counts": {
+          "supported": 2,
+          "contradicted": 2,
+          "unsupported": 0,
+          "not_checkable": 0,
+          "total": 4,
+          "checkable": 4
+        },
+        "hallucination_rate": 0.5,
+        "coverage_rate": 0.5,
+        "coverage_rate_broad": 0.5,
+        "one_line_verdict": "严重错误：摘要将两项核心利润指标的下降方向全部写反为增长，完全不能外发"
+      }
+    },
+    {
+      "id": "f08",
+      "tags": [
+        "error:subject"
+      ],
+      "note": "担保方与被担保方张冠李戴。金额正确、方向正确，只有主体反了 —— 只看数字的检查会漏掉。",
+      "expect": {
+        "contradicted": 1,
+        "unsupported": 0,
+        "min_coverage": 0.5
+      },
+      "judge": {
+        "status": "ok",
+        "rubric_version": "f1.0",
+        "prompt_version": "v1.2",
+        "model": "claude-sonnet-4-5-20250929",
+        "latency_ms": 30588,
+        "usage": {
+          "prompt_tokens": 1974,
+          "completion_tokens": 715,
+          "total_tokens": 2689,
+          "prompt_tokens_details": {},
+          "completion_tokens_details": {}
+        },
+        "claims": [
+          {
+            "text": "公司控股子公司恒昌仓储有限公司为全资子公司恒昌供应链管理有限公司提供连带责任保证担保",
+            "label": "contradicted",
+            "source_quote": "公司全资子公司恒昌供应链管理有限公司为控股子公司恒昌仓储有限公司提供连带责任保证担保",
+            "reason": "主体关系完全颠倒：原文是恒昌供应链（全资子公司）为恒昌仓储（控股子公司）担保，摘要写成了恒昌仓储为恒昌供应链担保，担保方与被担保方张冠李戴"
+          },
+          {
+            "text": "担保金额不超过 5000 万元",
+            "label": "supported",
+            "source_quote": "担保金额不超过人民币 5000 万元",
+            "reason": "金额与原文一致"
+          }
+        ],
+        "key_facts": [
+          {
+            "type": "subject",
+            "text": "担保方为全资子公司恒昌供应链管理有限公司，被担保方为控股子公司恒昌仓储有限公司",
+            "importance": "high",
+            "covered": false,
+            "note": "摘要将担保方与被担保方完全弄反，属于关键主体关系错误"
+          },
+          {
+            "type": "amount",
+            "text": "担保金额不超过人民币 5000 万元",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已覆盖"
+          },
+          {
+            "type": "amount",
+            "text": "恒昌仓储有限公司尚未归还的借款余额为人民币 3200 万元",
+            "importance": "high",
+            "covered": false,
+            "note": "摘要完全未提及实际借款余额"
+          },
+          {
+            "type": "timing",
+            "text": "截至本公告日",
+            "importance": "medium",
+            "covered": false,
+            "note": "摘要未提及时间基准"
+          }
+        ],
+        "counts": {
+          "supported": 1,
+          "contradicted": 1,
+          "unsupported": 0,
+          "not_checkable": 0,
+          "total": 2,
+          "checkable": 2
+        },
+        "hallucination_rate": 0.5,
+        "coverage_rate": 0.333,
+        "coverage_rate_broad": 0.25,
+        "one_line_verdict": "担保方与被担保方主体关系完全颠倒，且遗漏实际借款余额 3200 万元的关键信息，存在严重事实错误，不能外发"
+      }
+    },
+    {
+      "id": "f09",
+      "tags": [
+        "error:ratio"
+      ],
+      "note": "「个百分点」被写成「%」。这两个说法在财务上含义不同，属于典型的隐蔽错误。",
+      "expect": {
+        "contradicted": 1,
+        "unsupported": 0,
+        "min_coverage": 1
+      },
+      "judge": {
+        "status": "ok",
+        "rubric_version": "f1.0",
+        "prompt_version": "v1.2",
+        "model": "claude-sonnet-4-5-20250929",
+        "latency_ms": 13932,
+        "usage": {
+          "prompt_tokens": 1910,
+          "completion_tokens": 652,
+          "total_tokens": 2562,
+          "prompt_tokens_details": {},
+          "completion_tokens_details": {}
+        },
+        "claims": [
+          {
+            "text": "报告期末,公司资产负债率为 58.4%",
+            "label": "supported",
+            "source_quote": "报告期末,公司资产负债率为 58.4%",
+            "reason": "数字与原文完全一致"
+          },
+          {
+            "text": "较上年末上升 2.1%",
+            "label": "contradicted",
+            "source_quote": "较上年末上升 2.1 个百分点",
+            "reason": "原文是'上升 2.1 个百分点',摘要写成'上升 2.1%',这是两个完全不同的概念。百分点是绝对变化,百分比是相对变化,属于典型的数字错误"
+          },
+          {
+            "text": "归母净资产 42.7 亿元",
+            "label": "supported",
+            "source_quote": "归属于上市公司股东的净资产为 42.7 亿元",
+            "reason": "金额一致,'归母净资产'是'归属于上市公司股东的净资产'的常规简化表述,意思未变"
+          }
+        ],
+        "key_facts": [
+          {
+            "type": "ratio",
+            "text": "资产负债率为 58.4%",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已覆盖该数字"
+          },
+          {
+            "type": "direction",
+            "text": "资产负债率较上年末上升 2.1 个百分点",
+            "importance": "high",
+            "covered": false,
+            "note": "摘要将'百分点'错写为'%',属于关键数字错误,未正确覆盖"
+          },
+          {
+            "type": "amount",
+            "text": "归属于上市公司股东的净资产为 42.7 亿元",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已覆盖该金额"
+          }
+        ],
+        "counts": {
+          "supported": 2,
+          "contradicted": 1,
+          "unsupported": 0,
+          "not_checkable": 0,
+          "total": 3,
+          "checkable": 3
+        },
+        "hallucination_rate": 0.333,
+        "coverage_rate": 0.667,
+        "coverage_rate_broad": 0.667,
+        "one_line_verdict": "存在严重数字错误:将'上升 2.1 个百分点'误写为'上升 2.1%',两者含义完全不同,不能外发"
+      }
+    },
+    {
+      "id": "f10",
+      "tags": [
+        "error:unsupported"
+      ],
+      "note": "「预计年销售额可达 20 亿元」「未来主要业绩增长点」原文完全没说，是编造的预测。这类编造读起来最像专业分析，也最危险。",
+      "expect": {
+        "contradicted": 0,
+        "unsupported": 1,
+        "min_coverage": 1
+      },
+      "judge": {
+        "status": "ok",
+        "rubric_version": "f1.0",
+        "prompt_version": "v1.2",
+        "model": "claude-sonnet-4-5-20250929",
+        "latency_ms": 12021,
+        "usage": {
+          "prompt_tokens": 2115,
+          "completion_tokens": 1147,
+          "total_tokens": 3262,
+          "prompt_tokens_details": {},
+          "completion_tokens_details": {}
+        },
+        "claims": [
+          {
+            "text": "瑞和医药 RH-2081 片获临床试验批准",
+            "label": "supported",
+            "source_quote": "瑞和医药自主研发的化学 1 类新药 RH-2081 片获临床试验批准",
+            "reason": "与原文事实一致，仅省略了'自主研发'和'化学 1 类新药'的修饰"
+          },
+          {
+            "text": "用于治疗中重度特应性皮炎",
+            "label": "supported",
+            "source_quote": "用于治疗中重度特应性皮炎",
+            "reason": "与原文完全一致"
+          },
+          {
+            "text": "该项目已累计投入研发费用 8760 万元",
+            "label": "supported",
+            "source_quote": "公司在该药品研发项目上已累计投入研发费用人民币 8760 万元",
+            "reason": "金额和单位与原文一致"
+          },
+          {
+            "text": "预计该药物上市后年销售额可达 20 亿元",
+            "label": "unsupported",
+            "source_quote": "",
+            "reason": "原文未提及任何销售预测或金额预期，属于凭空编造"
+          },
+          {
+            "text": "将成为公司未来主要的业绩增长点",
+            "label": "unsupported",
+            "source_quote": "",
+            "reason": "原文未对该药物的业绩贡献作出任何预测或判断"
+          }
+        ],
+        "key_facts": [
+          {
+            "type": "subject",
+            "text": "RH-2081 片为化学 1 类新药",
+            "importance": "high",
+            "covered": false,
+            "note": "摘要省略了药物分类信息"
+          },
+          {
+            "type": "subject",
+            "text": "RH-2081 片为自主研发",
+            "importance": "medium",
+            "covered": false,
+            "note": "摘要省略了'自主研发'这一属性"
+          },
+          {
+            "type": "direction",
+            "text": "获临床试验批准",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已覆盖"
+          },
+          {
+            "type": "subject",
+            "text": "适应症为中重度特应性皮炎",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已覆盖"
+          },
+          {
+            "type": "amount",
+            "text": "累计投入研发费用人民币 8760 万元",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已覆盖"
+          },
+          {
+            "type": "timing",
+            "text": "截至本公告日",
+            "importance": "medium",
+            "covered": false,
+            "note": "摘要省略了研发费用投入的时间截点"
+          }
+        ],
+        "counts": {
+          "supported": 3,
+          "contradicted": 0,
+          "unsupported": 2,
+          "not_checkable": 0,
+          "total": 5,
+          "checkable": 5
+        },
+        "hallucination_rate": 0.32,
+        "coverage_rate": 0.75,
+        "coverage_rate_broad": 0.5,
+        "one_line_verdict": "前半部分事实准确，但后半部分凭空编造了 20 亿销售预测和业绩增长点判断，属于重大无据信息，不能外发"
+      }
+    },
+    {
+      "id": "f11",
+      "tags": [
+        "error:unsupported"
+      ],
+      "note": "「完善产业链布局」「创始团队来自头部互联网企业，技术实力雄厚」均为原文没有的内容。注意这两句非常像真实的投资公告用语，是典型的模型补全。",
+      "expect": {
+        "contradicted": 0,
+        "unsupported": 1,
+        "min_coverage": 1
+      },
+      "judge": {
+        "status": "ok",
+        "rubric_version": "f1.0",
+        "prompt_version": "v1.2",
+        "model": "claude-sonnet-4-5-20250929",
+        "latency_ms": 11476,
+        "usage": {
+          "prompt_tokens": 2011,
+          "completion_tokens": 1149,
+          "total_tokens": 3160,
+          "prompt_tokens_details": {},
+          "completion_tokens_details": {}
+        },
+        "claims": [
+          {
+            "text": "星原科技拟以 1.2 亿元投资云栖智能科技",
+            "label": "supported",
+            "source_quote": "星原科技拟以自有资金人民币 1.2 亿元认购云栖智能科技（深圳）有限公司新增注册资本",
+            "reason": "金额与主体均与原文一致"
+          },
+          {
+            "text": "持股 15%",
+            "label": "supported",
+            "source_quote": "占其增资后注册资本的 15%",
+            "reason": "持股比例与原文完全一致"
+          },
+          {
+            "text": "公司表示本次投资旨在完善产业链布局",
+            "label": "unsupported",
+            "source_quote": "",
+            "reason": "原文未提及投资目的或产业链布局，属于编造"
+          },
+          {
+            "text": "标的公司创始团队来自头部互联网企业",
+            "label": "unsupported",
+            "source_quote": "",
+            "reason": "原文完全没有关于创始团队背景的信息，属于编造"
+          },
+          {
+            "text": "技术实力雄厚",
+            "label": "unsupported",
+            "source_quote": "",
+            "reason": "原文未对标的公司技术实力作任何评价，属于编造"
+          },
+          {
+            "text": "本次投资不构成关联交易",
+            "label": "supported",
+            "source_quote": "本次投资不构成关联交易",
+            "reason": "与原文表述完全一致"
+          }
+        ],
+        "key_facts": [
+          {
+            "type": "amount",
+            "text": "投资金额人民币 1.2 亿元",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要第 1 句已覆盖"
+          },
+          {
+            "type": "amount",
+            "text": "认购新增注册资本 3000 万元",
+            "importance": "high",
+            "covered": false,
+            "note": "摘要未提及具体认购的注册资本金额"
+          },
+          {
+            "type": "ratio",
+            "text": "占增资后注册资本的 15%",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已覆盖持股比例"
+          },
+          {
+            "type": "subject",
+            "text": "标的公司全称为云栖智能科技（深圳）有限公司",
+            "importance": "medium",
+            "covered": false,
+            "note": "摘要简化为'云栖智能科技'，缺少完整公司名称"
+          },
+          {
+            "type": "subject",
+            "text": "本次投资不构成关联交易",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已明确说明"
+          }
+        ],
+        "counts": {
+          "supported": 3,
+          "contradicted": 0,
+          "unsupported": 3,
+          "not_checkable": 0,
+          "total": 6,
+          "checkable": 6
+        },
+        "hallucination_rate": 0.4,
+        "coverage_rate": 0.75,
+        "coverage_rate_broad": 0.6,
+        "one_line_verdict": "金额和持股比例准确，但编造了投资目的、创始团队背景和技术实力评价三项原文不存在的信息，不能直接外发"
+      }
+    },
+    {
+      "id": "f12",
+      "tags": [
+        "error:unsupported"
+      ],
+      "note": "「得益于新开跨境电商物流业务」「运费单价上调」—— 归因被凭空补上。原文只给了数字，没给原因。这是摘要系统最常犯的错误。",
+      "expect": {
+        "contradicted": 0,
+        "unsupported": 1,
+        "min_coverage": 1
+      },
+      "judge": {
+        "status": "ok",
+        "rubric_version": "f1.0",
+        "prompt_version": "v1.2",
+        "model": "claude-sonnet-4-5-20250929",
+        "latency_ms": 20396,
+        "usage": {
+          "prompt_tokens": 1966,
+          "completion_tokens": 689,
+          "total_tokens": 2655,
+          "prompt_tokens_details": {},
+          "completion_tokens_details": {}
+        },
+        "claims": [
+          {
+            "text": "恒昌物流一季度营业收入 18.42 亿元",
+            "label": "supported",
+            "source_quote": "报告期内实现营业收入人民币 18.42 亿元",
+            "reason": "金额与原文完全一致"
+          },
+          {
+            "text": "同比增长 12.7%",
+            "label": "supported",
+            "source_quote": "较上年同期增长 12.7%",
+            "reason": "增长幅度与原文一致"
+          },
+          {
+            "text": "营收增长主要得益于公司新开的跨境电商物流业务的快速放量",
+            "label": "unsupported",
+            "source_quote": "",
+            "reason": "原文未提及跨境电商物流业务，属于凭空编造的增长原因"
+          },
+          {
+            "text": "以及运费单价的上调",
+            "label": "unsupported",
+            "source_quote": "",
+            "reason": "原文未提及运费单价上调，属于凭空编造的增长原因"
+          },
+          {
+            "text": "期末资产负债率 58.4%",
+            "label": "supported",
+            "source_quote": "报告期末，公司资产负债率为 58.4%",
+            "reason": "比例数据与原文完全一致"
+          }
+        ],
+        "key_facts": [
+          {
+            "type": "amount",
+            "text": "营业收入人民币 18.42 亿元",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要第 1 句已覆盖"
+          },
+          {
+            "type": "ratio",
+            "text": "较上年同期增长 12.7%",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要第 1 句已覆盖"
+          },
+          {
+            "type": "ratio",
+            "text": "资产负债率为 58.4%",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要最后一句已覆盖"
+          }
+        ],
+        "counts": {
+          "supported": 3,
+          "contradicted": 0,
+          "unsupported": 2,
+          "not_checkable": 0,
+          "total": 5,
+          "checkable": 5
+        },
+        "hallucination_rate": 0.32,
+        "coverage_rate": 1,
+        "coverage_rate_broad": 1,
+        "one_line_verdict": "核心数字准确，但编造了跨境电商业务和运费单价上调两个原文不存在的增长原因，不能直接外发"
+      }
+    },
+    {
+      "id": "f13",
+      "tags": [
+        "error:unsupported"
+      ],
+      "note": "回购理由和股份用途原文均未提及。模型把最常见的回购公告套话补了进来。",
+      "expect": {
+        "contradicted": 0,
+        "unsupported": 1,
+        "min_coverage": 1
+      },
+      "judge": {
+        "status": "ok",
+        "rubric_version": "f1.0",
+        "prompt_version": "v1.2",
+        "model": "claude-sonnet-4-5-20250929",
+        "latency_ms": 10804,
+        "usage": {
+          "prompt_tokens": 1927,
+          "completion_tokens": 1085,
+          "total_tokens": 3012,
+          "prompt_tokens_details": {},
+          "completion_tokens_details": {}
+        },
+        "claims": [
+          {
+            "text": "宏远集团累计回购 1250 万股",
+            "label": "supported",
+            "source_quote": "宏远集团通过集中竞价交易方式累计回购公司股份 1250 万股",
+            "reason": "回购数量与原文完全一致"
+          },
+          {
+            "text": "占总股本 1.98%",
+            "label": "supported",
+            "source_quote": "占公司总股本的 1.98%",
+            "reason": "占比数字与原文一致"
+          },
+          {
+            "text": "成交总金额 2.86 亿元",
+            "label": "supported",
+            "source_quote": "成交总金额人民币 2.86 亿元",
+            "reason": "金额与原文完全一致"
+          },
+          {
+            "text": "公司表示，本次回购基于对公司未来发展的信心和对公司价值的认可",
+            "label": "unsupported",
+            "source_quote": "",
+            "reason": "原文未提及公司对回购动机的任何表态，属于编造"
+          },
+          {
+            "text": "回购股份将用于后续股权激励",
+            "label": "unsupported",
+            "source_quote": "",
+            "reason": "原文未说明回购股份的用途，属于编造"
+          }
+        ],
+        "key_facts": [
+          {
+            "type": "amount",
+            "text": "回购股份 1250 万股",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要第 1 句已覆盖"
+          },
+          {
+            "type": "ratio",
+            "text": "占公司总股本 1.98%",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要第 1 句已覆盖"
+          },
+          {
+            "type": "amount",
+            "text": "成交总金额人民币 2.86 亿元",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要第 1 句已覆盖"
+          },
+          {
+            "type": "timing",
+            "text": "截至 2026 年 2 月 28 日",
+            "importance": "medium",
+            "covered": false,
+            "note": "摘要未提及回购完成的时间节点"
+          },
+          {
+            "type": "subject",
+            "text": "通过集中竞价交易方式",
+            "importance": "medium",
+            "covered": false,
+            "note": "摘要未提及回购方式"
+          },
+          {
+            "type": "direction",
+            "text": "本次回购计划已实施完毕",
+            "importance": "high",
+            "covered": false,
+            "note": "摘要未明确说明回购计划已完成"
+          }
+        ],
+        "counts": {
+          "supported": 3,
+          "contradicted": 0,
+          "unsupported": 2,
+          "not_checkable": 0,
+          "total": 5,
+          "checkable": 5
+        },
+        "hallucination_rate": 0.32,
+        "coverage_rate": 0.75,
+        "coverage_rate_broad": 0.5,
+        "one_line_verdict": "核心数字准确，但编造了回购动机和用途两项原文不存在的信息，不能直接外发"
+      }
+    },
+    {
+      "id": "f14",
+      "tags": [
+        "error:omission"
+      ],
+      "note": "只报了营收，三项关键数字（净利润、扣非净利润、现金流）全丢。而且「经营状况良好」在净利润下滑 8.3% 的情况下属于误导性概括 —— 好的裁判应该同时指出这一点。",
+      "expect": {
+        "contradicted": 0,
+        "unsupported": 0,
+        "max_coverage": 0.5
+      },
+      "judge": {
+        "status": "ok",
+        "rubric_version": "f1.0",
+        "prompt_version": "v1.2",
+        "model": "claude-sonnet-4-5-20250929",
+        "latency_ms": 13792,
+        "usage": {
+          "prompt_tokens": 2155,
+          "completion_tokens": 1256,
+          "total_tokens": 3411,
+          "prompt_tokens_details": {},
+          "completion_tokens_details": {}
+        },
+        "claims": [
+          {
+            "text": "恒昌物流 2026 年一季度营业收入 18.42 亿元",
+            "label": "supported",
+            "source_quote": "报告期内实现营业收入人民币 18.42 亿元",
+            "reason": "金额与原文完全一致"
+          },
+          {
+            "text": "同比增长 12.7%",
+            "label": "supported",
+            "source_quote": "较上年同期增长 12.7%",
+            "reason": "增幅与原文一致"
+          },
+          {
+            "text": "经营状况良好",
+            "label": "unsupported",
+            "source_quote": "",
+            "reason": "原文显示净利润下降 8.3%、扣非净利润下降 14.6%，摘要自行得出'经营状况良好'的结论，原文未给出此评价"
+          },
+          {
+            "text": "业务规模持续扩大",
+            "label": "unsupported",
+            "source_quote": "",
+            "reason": "原文仅显示一个季度的营收增长，未提及'持续'扩大或多期趋势，属于摘要自行推断"
+          }
+        ],
+        "key_facts": [
+          {
+            "type": "amount",
+            "text": "营业收入人民币 18.42 亿元",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已覆盖"
+          },
+          {
+            "type": "ratio",
+            "text": "营业收入较上年同期增长 12.7%",
+            "importance": "high",
+            "covered": true,
+            "note": "摘要已覆盖"
+          },
+          {
+            "type": "amount",
+            "text": "归属于上市公司股东的净利润人民币 1.06 亿元",
+            "importance": "high",
+            "covered": false,
+            "note": "摘要未提及净利润金额"
+          },
+          {
+            "type": "direction",
+            "text": "净利润较上年同期下降 8.3%",
+            "importance": "high",
+            "covered": false,
+            "note": "摘要未提及净利润下降，反而称'经营状况良好'，构成重大遗漏"
+          },
+          {
+            "type": "amount",
+            "text": "扣除非经常性损益的净利润人民币 0.92 亿元",
+            "importance": "high",
+            "covered": false,
+            "note": "摘要未提及扣非净利润"
+          },
+          {
+            "type": "direction",
+            "text": "扣非净利润较上年同期下降 14.6%",
+            "importance": "high",
+            "covered": false,
+            "note": "摘要未提及扣非净利润下降"
+          },
+          {
+            "type": "amount",
+            "text": "经营活动产生的现金流量净额人民币 2.35 亿元",
+            "importance": "high",
+            "covered": false,
+            "note": "摘要未提及现金流"
+          },
+          {
+            "type": "ratio",
+            "text": "现金流较上年同期增长 41.2%",
+            "importance": "high",
+            "covered": false,
+            "note": "摘要未提及现金流增长"
+          }
+        ],
+        "counts": {
+          "supported": 2,
+          "contradicted": 0,
+          "unsupported": 2,
+          "not_checkable": 0,
+          "total": 4,
+          "checkable": 4
+        },
+        "hallucination_rate": 0.4,
+        "coverage_rate": 0.25,
+        "coverage_rate_broad": 0.25,
+        "one_line_verdict": "营收数据准确，但编造了'经营状况良好'和'持续扩大'的结论，且隐瞒了净利润双降的关键事实，不能外发"
+      }
+    },
+    {
+      "id": "f15",
+      "tags": [
+        "error:omission"
+      ],
+      "note": "把三条具体风险压缩成一句套话。风险提示的遗漏在合规上是严重问题。",
+      "expect": {
+        "contradicted": 0,
+        "unsupported": 0,
+        "max_coverage": 0.4
+      },
+      "judge": {
+        "status": "ok",
+        "rubric_version": "f1.0",
+        "prompt_version": "v1.2",
+        "model": "claude-sonnet-4-5-20250929",
+        "latency_ms": 7367,
+        "usage": {
+          "prompt_tokens": 2008,
+          "completion_tokens": 571,
+          "total_tokens": 2579,
+          "prompt_tokens_details": {},
+          "completion_tokens_details": {}
+        },
+        "claims": [
+          {
+            "text": "公司就本次投资提示相关风险",
+            "label": "supported",
+            "source_quote": "公司提示，本次投资存在以下风险",
+            "reason": "与原文表述一致"
+          },
+          {
+            "text": "敬请广大投资者注意投资风险",
+            "label": "supported",
+            "source_quote": "敬请广大投资者注意投资风险",
+            "reason": "原文原话"
+          }
+        ],
+        "key_facts": [
+          {
+            "type": "risk",
+            "text": "标的公司尚处于亏损阶段，未来盈利能力存在不确定性",
+            "importance": "high",
+            "covered": false,
+            "note": "摘要只说了'提示相关风险'，但未列出这条具体风险"
+          },
+          {
+            "type": "risk",
+            "text": "本次投资形成的商誉可能面临减值风险",
+            "importance": "high",
+            "covered": false,
+            "note": "摘要未提及商誉减值风险"
+          },
+          {
+            "type": "risk",
+            "text": "标的公司所处行业竞争激烈，市场份额存在下降可能",
+            "importance": "high",
+            "covered": false,
+            "note": "摘要未提及市场竞争风险"
+          }
+        ],
+        "counts": {
+          "supported": 2,
+          "contradicted": 0,
+          "unsupported": 0,
+          "not_checkable": 0,
+          "total": 2,
+          "checkable": 2
+        },
+        "hallucination_rate": 0,
+        "coverage_rate": 0,
+        "coverage_rate_broad": 0,
+        "one_line_verdict": "摘要没有事实错误，但三项具体风险提示全部缺失，信息披露不完整"
+      }
+    }
+  ]
+}
