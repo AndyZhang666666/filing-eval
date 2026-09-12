@@ -2,8 +2,8 @@
 
 给 AI 生成的公告摘要做**逐条事实核验**：把摘要拆成断言，对着原文验，区分「写错」和「无据」，并把「没错但漏」单独统计。
 
-**在线：** _（部署后填）_
-**姊妹项目：** [creative-eval](../creative-eval) — 主观质量打分的另一套范式，两者刻意对照。
+**在线 Demo：** https://andyzhang666666.github.io （读一段摘要，猜哪句是编的，再看裁判逐条断言的核对结果）
+**姊妹项目：** [creative-eval](https://github.com/AndyZhang666666/creative-eval) — 主观质量打分的另一套范式，两者刻意对照。
 
 ---
 
