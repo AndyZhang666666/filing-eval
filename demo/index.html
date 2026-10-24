@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>公告核验台 · Filing Eval</title><meta name="description" content="从摘要断言追溯模拟公告原文，查看历史核验、遗漏和争议，留下自己的本地复核记录。无需 API Key。">
+<link rel="stylesheet" href="./style.css"></head>
+<body>
+<header class="viewer"><a href="https://andyzhang666666.github.io/">Andy Zhang / 作品</a><span>Filing Eval · 公告核验台</span><a href="https://github.com/AndyZhang666666/filing-eval">源码</a></header>
+<main>
+<div class="title-row"><div><h1>每一句，都回到原文。</h1><p>选一条摘要断言，看证据是否成立，再留下你的复核。</p></div><button id="export" class="primary" disabled>导出复核记录</button></div>
+<p class="notice">历史回放 · 28 条模拟公告样本 · 无需 Key，不调用模型。这里只核对给定原文，不验证公告本身或外部世界的真实性。</p>
+<nav class="view-tabs" aria-label="核验工具"><button data-view="desk" aria-pressed="true">证据核验</button><button data-view="report" aria-pressed="false">评测与边界</button></nav>
+<p id="status" role="status">正在读取本地历史数据…</p>
+<section id="desk" aria-label="证据核验工作区" hidden>
+  <div class="selection"><label>选择一个核验场景<select id="sample"></select></label><p id="case-note"></p></div>
+  <div id="case-facts" class="facts"></div>
+  <div class="workspace">
+    <section class="panel"><h2>摘要与原子断言</h2><p id="summary" class="summary"></p>
+      <label>筛选断言<select id="filter"><option value="all">全部断言</option><option value="contradicted">写错</option><option value="unsupported">无据</option><option value="supported">有据</option><option value="not_checkable">无法核验</option></select></label>
+      <div id="claims" class="claims"></div>
+    </section>
+    <div class="evidence-stack">
+      <section class="panel"><h2>原文证据</h2><p id="quote-state" class="meta"></p><div id="source" class="source"></div><div id="reason" class="reason"></div></section>
+      <section class="panel"><h2>你的复核</h2><p class="meta">仅保存到本机浏览器，不修改历史结果或金标，不计入模型成绩。</p>
+        <form id="review-form"><label>复核结论<select id="review-state"><option value="agree">同意原判断</option><option value="disagree">不同意，需要修正</option><option value="needs-review">证据不足，保留争议</option></select></label>
+        <label>依据或待确认问题<textarea id="review-note" rows="2" maxlength="2000" placeholder="不同意或保留争议时，请写明依据。"></textarea></label>
+        <button type="submit">保存本地复核</button></form><p id="review-feedback" role="status"></p>
+      </section>
+    </div>
+  </div>
+  <section class="panel"><h2>没说错，也可能没说全</h2><p class="meta">以下关键事实及覆盖判断也来自历史裁判。缺失与写错分开看，不由一个总分替代审核。</p><div id="coverage"></div></section>
+</section>
+<section id="report" hidden aria-label="评测与边界"></section>
+<noscript><p>此核验工作区需要 JavaScript。历史样本与结果可直接在<a href="https://github.com/AndyZhang666666/filing-eval/tree/main/results">仓库 results</a>阅读。</p></noscript>
+</main><footer>所有公司、公告和数据均为构造样本。回放只展示已记录输出，不提供新文本实时核验，不代替人工审核。</footer>
+<script src="./app.js" defer></script></body></html>

@@ -2,7 +2,11 @@
 
 给 AI 生成的公告摘要做**逐条事实核验**：把摘要拆成断言，对着原文验，区分「写错」和「无据」，并把「没错但漏」单独统计。
 
-**在线 Demo：** https://andyzhang666666.github.io （读一段摘要，猜哪句是编的，再看裁判逐条断言的核对结果）
+**在线 Demo：** https://andyzhang666666.github.io/demos/filing-eval/ —— 不用 Key，按「断言 → 原文 → 遗漏/争议 → 本地复核 → 导出」查看历史输出。原 Next.js 实时核验代码保留，但公开 Demo 是独立静态回放，不评估任意新文本。
+
+2026-10-24：新增 28 条公开模拟样本的证据回放、本地复核和独立部署。原预期标签仍未完成独立人工复核；新增 6 条候选留出样本尚未运行，不计入历史成绩。见 [复核协议](docs/REVIEW_PROTOCOL.md) 与 [更新记录](CHANGELOG.md)。
+
+静态 Demo 可直接验证：`node scripts/build-demo.mjs && node scripts/verify-demo.mjs`，再用静态服务器打开 `demo/`；不安装依赖、不调用模型。界面字体为 Google Fonts 的 Geist，按 SIL OFL 许可分发，见 `demo/FONT-LICENSE.txt`。
 **姊妹项目：** [creative-eval](https://github.com/AndyZhang666666/creative-eval) — 主观质量打分的另一套范式，两者刻意对照。
 
 ---
