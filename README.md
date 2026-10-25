@@ -6,7 +6,11 @@
 
 2026-10-24：新增 28 条公开模拟样本的证据回放、本地复核和独立部署。原预期标签仍未完成独立人工复核；新增 6 条候选留出样本尚未运行，不计入历史成绩。见 [复核协议](docs/REVIEW_PROTOCOL.md) 与 [更新记录](CHANGELOG.md)。
 
+2026-10-25：复核结论默认留空；断言与关键事实覆盖分别记录，支持继续未复核项。导出包含原文、摘要、原始判断、人工依据及未保存草稿数量。损坏/越界记录不计为已复核，旧断言记录可迁移；无持久存储时仍可在本页操作并导出。新增纯逻辑和28例全链路浏览器验收，见[验证记录](docs/VALIDATION.md)。没有调用模型或改动原始成绩。
+
 静态 Demo 可直接验证：`node scripts/build-demo.mjs && node scripts/verify-demo.mjs`，再用静态服务器打开 `demo/`；不安装依赖、不调用模型。界面字体为 Google Fonts 的 Geist，按 SIL OFL 许可分发，见 `demo/FONT-LICENSE.txt`。
+
+复核逻辑：`node --test scripts/test-review.mjs`；浏览器流程：`PLAYWRIGHT_MODULE=<Playwright模块路径> TEST_URL=<静态Demo地址> node scripts/test-browser.mjs`。不要运行`eval/stability/adversarial`来代替界面验证，那些脚本会按配置请求模型。
 **姊妹项目：** [creative-eval](https://github.com/AndyZhang666666/creative-eval) — 主观质量打分的另一套范式，两者刻意对照。
 
 ---
