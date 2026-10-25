@@ -18,6 +18,7 @@ jobs:
           node-version: 22
       - run: node scripts/build-demo.mjs
       - run: node scripts/verify-demo.mjs
+      - run: node --test scripts/test-review.mjs
       - uses: actions/upload-artifact@v4
         with:
           name: filing-evidence-demo
