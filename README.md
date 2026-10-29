@@ -1,4 +1,27 @@
-# Fact Check Eval — 公告摘要事实一致性评测台
+# Filing Eval · 公告事实与遗漏复核
+
+[在线体验](https://andyzhang666666.github.io/demos/filing-eval/) · [English](README.en.md) · [作品索引](https://github.com/AndyZhang666666/AndyZhang666666/blob/main/PROJECTS.md)
+
+摘要没有写错，是否就足够完整？
+
+![Filing Eval · 公告事实与遗漏复核的实际产品界面](https://andyzhang666666.github.io/assets/work/showcase/filing-crop.jpg)
+
+## 值得看的设计
+
+- 断言错误和关键遗漏分别核验，避免总分掩盖风险。
+- 原文、摘要和历史裁判并列，人工判断单独记录。
+- 有争议的标签继续可见，不为提高成绩悄悄改答案。
+
+## 建议体验路径
+
+1. 打开一条公告样本，选中摘要里的具体断言。
+2. 回到原文检查事实，再查看没有被写进摘要的关键事项。
+3. 保存复核结论与依据，继续未复核项，导出完整记录。
+
+**运行方式：** 公开体验是 28 条构造公告的静态历史回放，不评估任意新文本；原 Next.js 与模型评测脚本保留在源码中。
+
+<details>
+<summary>展开实现、模型与验证记录</summary>
 
 2026-10-27 前端更新：原文与断言使用并列阅读区，统一事实带、选中证据和人工复核的层级；保留所有历史结果、样本与核验规则。与官网 `/demos/filing-eval/` 使用同一份静态界面文件。
 
@@ -118,3 +141,5 @@ node scripts/rescore.mjs              # 改了判据后，重算历史结果不�
 ```
 
 金标集在 `data/golden/`，全部为虚构公司的模拟公告，不含任何真实上市公司数据。
+
+</details>
