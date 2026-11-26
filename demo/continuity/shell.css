@@ -1,0 +1,23 @@
+:root {--folio-sheet:#f5f0e4;--folio-ink:#261e1b;--folio-edge:#c7bfae;--folio-accent:#903a28}
+:root[data-palette="mist"] {--folio-sheet:#eed9c4;--folio-ink:#3e2725;--folio-edge:#c8a690;--folio-accent:#913823}
+:root[data-palette="copper"] {--folio-sheet:#112b36;--folio-ink:#fff1ce;--folio-edge:#617e83;--folio-accent:#ffb09a}
+:root[data-palette="indigo"] {--folio-sheet:#dce5d4;--folio-ink:#1e342e;--folio-edge:#a2b7a6;--folio-accent:#315951}
+.demo-context {display:block;position:relative;isolation:isolate;box-sizing:border-box;background:var(--folio-sheet);color:var(--folio-ink);border-block-end:1px solid var(--folio-edge);font:500 14px/1.45 system-ui,sans-serif;text-align:start}
+.demo-context .context-row,.demo-context output {max-width:1440px;margin:auto;padding-inline:clamp(14px,3vw,44px);box-sizing:border-box}
+.demo-context .context-row {display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;min-height:46px}
+.demo-context .context-row>a,.demo-context button {display:inline-flex;align-items:center;min-height:44px;color:inherit;background:transparent;text-decoration:none;font:inherit;border:0;padding:0;cursor:pointer;justify-self:start}
+.demo-context .context-row button {justify-self:end}
+.demo-context .context-row>a:hover,.demo-context button:hover {text-decoration:underline;text-underline-offset:4px}
+.demo-context :focus-visible {outline:2px solid var(--folio-accent);outline-offset:2px}
+.demo-context output {display:block;padding-block:5px 10px;color:var(--folio-ink);font:400 14px/1.5 system-ui,sans-serif;font-variant-numeric:tabular-nums}
+html:has(.demo-context) body {border-block-start:3px solid var(--folio-accent)}
+/* Retain the colour of artwork and charts. Tint the surrounding work surface instead. */
+html[data-palette=mist] {--desk-bg:#f6e9dc;--desk-panel:#fffaf4;--desk-rule:#d2b7a0;--desk-accent:#8d392a}
+html[data-palette=copper] {--desk-bg:#dce7e9;--desk-panel:#f8fbfb;--desk-rule:#a4babe;--desk-accent:#175761}
+html[data-palette=indigo] {--desk-bg:#e6eddf;--desk-panel:#fbfdf8;--desk-rule:#a8b8a1;--desk-accent:#2b594d}
+html:is([data-palette=mist],[data-palette=copper],[data-palette=indigo]):has(.demo-context):not(:has(.series-nav)) {
+ --ground:var(--desk-bg);--paper:var(--desk-bg);--bg:var(--desk-bg);--surface:var(--desk-panel);
+ --work-paper:var(--desk-bg);--work-panel:var(--desk-panel);--studio-paper:var(--desk-panel);
+ --line:var(--desk-rule);--work-line:var(--desk-rule);--accent:var(--desk-accent);--work-accent:var(--desk-accent)
+}
+html[data-palette]:not([data-palette=frost]) body:has(.demo-context):not(:has(.series-nav)){background-color:var(--desk-bg)}
