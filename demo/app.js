@@ -104,6 +104,7 @@ function renderEvidence() {
         }
       : original;
   const loc = c && locateQuote(s.source, c.source_quote);
+  document.dispatchEvent(new CustomEvent('demo-insight',{detail:[`样本 ${selected} · ${kind==='claim'?'断言':'覆盖项'} ${picked+1}。${loc?'已在公告定位引文；仍需判断它是否支持结论。':'尚无可定位引文，需直接核对原文。'}`,`Sample ${selected} · ${kind} ${picked+1}. ${loc?'Quotation found in the filing. Check whether it supports the conclusion.':'No quotation located; inspect the filing directly.'}`]}));
   $("source").innerHTML = loc
     ? `${esc(s.source.slice(0, loc.start))}<mark>${esc(s.source.slice(loc.start, loc.end))}</mark>${esc(s.source.slice(loc.end))}`
     : esc(s.source || "此边界样本未提供原文。");
@@ -142,7 +143,9 @@ function renderCase() {
   picked = 0;
   kind = "claim";
   $("filter").value = "all";
-  history.replaceState(null, "", `#${s.id}`);
+  const link=new URL(location.href);
+  if(link.searchParams.has('sample'))link.searchParams.set('sample',s.id);
+  link.hash=s.id;history.replaceState(history.state,"",link);
   $("summary").textContent = s.summary || "此边界样本摘要为空。";
   $("case-note").textContent = s.note || s.tags.join(" / ");
   const claims = s.judge.claims || [];
@@ -344,7 +347,7 @@ async function init() {
           `<option value="${s.id}">${esc(names[s.id] || `${s.id} · ${s.note || s.tags.join(" / ")}`)}</option>`,
       )
       .join("");
-    const initial = location.hash.slice(1);
+    const initial = new URLSearchParams(location.search).get("sample") || location.hash.slice(1);
     selected = dataset.samples.some((s) => s.id === initial) ? initial : "f05";
     $("sample").value = selected;
     $("desk").hidden = false;
